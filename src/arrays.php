@@ -132,7 +132,7 @@ function array_map_assoc(callable $f, $a)
     return array_column(array_map($f, array_keys($a), $a), 1, 0);
 }
 
-if (!function_exists('array_except')) {
+if (! function_exists('array_except')) {
     /**
      * Remove specific arrays of keys without modifying the original array.
      *
