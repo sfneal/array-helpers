@@ -132,16 +132,18 @@ function array_map_assoc(callable $f, $a)
     return array_column(array_map($f, array_keys($a), $a), 1, 0);
 }
 
-/**
- * Remove specific arrays of keys without modifying the original array.
- *
- * @param array $original
- * @param array $except
- * @return array
- */
-function array_except(array $original, array $except)
-{
-    return array_diff_key($original, array_flip((array) $except));
+if (!function_exists('array_except')) {
+    /**
+     * Remove specific arrays of keys without modifying the original array.
+     *
+     * @param array $original
+     * @param array $except
+     * @return array
+     */
+    function array_except(array $original, array $except)
+    {
+        return array_diff_key($original, array_flip((array) $except));
+    }
 }
 
 /**
