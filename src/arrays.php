@@ -215,7 +215,7 @@ if (function_exists('collect')) {
      * @param bool $toArray
      * @return Illuminate\Support\Collection|array
      */
-    function array_diff_flat(array $first, array $second, bool $toArray = true)
+    function array_diff_flat(array $first, array $second, $toArray = true)
     {
         $collection = collect($first)
             ->diff($second)
