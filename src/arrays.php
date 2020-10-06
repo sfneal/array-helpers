@@ -10,7 +10,7 @@
  * @param bool $preserve_keys
  * @return array
  */
-function arrayChunks(array $array, int $min = 0, int $max = null, $no_remainders = false, $preserve_keys = true)
+function arrayChunks(array $array, $min = 0, $max = null, $no_remainders = false, $preserve_keys = true)
 {
     $chunks = array_chunk($array, chunkSizer(count($array), $min, $max), $preserve_keys);
 
@@ -161,7 +161,7 @@ if (! function_exists('array_except')) {
  * @param int $divisor
  * @return int $remainder lowest calculated remainder
  */
-function chunkSizer(int $array_size, int $min = 0, $max = null, int $divisor = 2)
+function chunkSizer($array_size, $min = 0, $max = null, $divisor = 2)
 {
     // If the size of the array is a perfect square, return the square root
     if (gmp_perfect_square($array_size) == true) {
@@ -178,7 +178,7 @@ function chunkSizer(int $array_size, int $min = 0, $max = null, int $divisor = 2
     while ($divisor < $max) {
         $sizes[$divisor] = [
             // Number of chunks
-            'rows'=> intdiv($array_size, $divisor),
+            'rows'=> floor($array_size / $divisor),
 
             // Items in each chunk
             'cols' => $divisor,
@@ -238,7 +238,7 @@ if (function_exists('collect')) {
  * @param string $key
  * @return mixed
  */
-function array_unset(array $array, string $key)
+function array_unset(array $array, $key)
 {
     // Get the value
     try {
@@ -260,7 +260,7 @@ function array_unset(array $array, string $key)
  * @param array $array
  * @return bool
  */
-function arrayValuesNull(array $array): bool
+function arrayValuesNull(array $array)
 {
     return arrayValuesEqual($array, null);
 }
