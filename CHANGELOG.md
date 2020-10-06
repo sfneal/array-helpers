@@ -16,3 +16,7 @@ All notable changes to `array-helpers` will be documented in this file
 
 ## 0.2.2 - 2020-10-06
 - cut support for php 5.3 & 5.4
+
+
+## 0.2.3 - 2020-10-06
+- fix compatibility issues with php5
