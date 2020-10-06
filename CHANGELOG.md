@@ -12,3 +12,7 @@ All notable changes to `array-helpers` will be documented in this file
 
 ## 0.2.1 - 2020-10-05
 - add support for php 5.3-5.6
+
+
+## 0.2.1 - 2020-10-05
+- cut support for php 5.3 & 5.4

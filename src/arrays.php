@@ -115,7 +115,7 @@ function arrayValuesEqual(array $array, $value)
  * @param array $array
  * @return bool
  */
-function arrayHasKeys(array $array): bool
+function arrayHasKeys(array $array)
 {
     return count($array) == count($array, COUNT_RECURSIVE);
 }
