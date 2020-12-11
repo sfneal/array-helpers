@@ -24,3 +24,7 @@ All notable changes to `array-helpers` will be documented in this file
 
 ## 0.3.0 - 2020-12-04
 - add support for php8
+
+
+## 0.3.1 - 2020-12-11
+- fix support for php8
