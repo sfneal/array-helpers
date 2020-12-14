@@ -64,7 +64,7 @@ function arrayFlattenKeys($array, $nest_keys = true)
 function arrayRemoveKeys($array, $keys)
 {
     $all_keys = array_keys($array);
-    foreach ($keys as $key) {
+    foreach ((array) $keys as $key) {
         if (in_array($key, $all_keys)) {
             unset($array[$key]);
         }
