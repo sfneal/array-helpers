@@ -122,7 +122,15 @@ class ArrayHelpersTest extends TestCase
     /** @test */
     public function arrayValuesUnique()
     {
-        $this->assertTrue(true);
+        $unique = [
+            'red' => 22,
+            'green' => 44,
+            'blue' => 23,
+        ];
+
+        // Determine if the array values are unique
+        $isUnique = arrayValuesUnique($unique);
+        $this->assertTrue($isUnique);
     }
 
     /** @test */
