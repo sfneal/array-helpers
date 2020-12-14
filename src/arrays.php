@@ -73,6 +73,14 @@ function arrayRemoveKeys($array, $keys)
     return $array;
 }
 
+
+/**
+ * Sum the values of two arrays
+ *
+ * @param $array1
+ * @param $array2
+ * @return array
+ */
 function sum_arrays($array1, $array2)
 {
     $array = [];
