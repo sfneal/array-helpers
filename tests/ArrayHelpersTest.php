@@ -136,13 +136,30 @@ class ArrayHelpersTest extends TestCase
     /** @test */
     public function arrayValuesEqual()
     {
-        $this->assertTrue(true);
+        $value = 22;
+        $values = [
+            'red' => $value,
+            'green' => $value,
+            'blue' => $value,
+        ];
+
+        // Determine if the array values are unique
+        $isEqual = arrayValuesEqual($values, $value);
+        $this->assertTrue($isEqual);
     }
 
     /** @test */
     public function arrayHasKeys()
     {
-        $this->assertTrue(true);
+        $values = [
+            'red' => 22,
+            'green' => 22,
+            'blue' => 22,
+        ];
+
+        // Determine if the array values are unique
+        $hasKeys = arrayHasKeys($values);
+        $this->assertTrue($hasKeys);
     }
 
     /** @test */
