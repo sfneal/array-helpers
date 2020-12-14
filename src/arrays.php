@@ -74,7 +74,7 @@ function arrayRemoveKeys($array, $keys)
 }
 
 /**
- * Sum the values of two arrays
+ * Sum the values of two arrays.
  *
  * @param $array1
  * @param $array2
