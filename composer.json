@@ -41,6 +41,9 @@
         "test-coverage": "vendor/bin/phpunit --coverage-html coverage",
         "update-test": "composer --prefer-stable update && composer test && composer update --prefer-lowest && composer test && composer update"
     },
+    "suggest": {
+        "illuminate/collections": "Improves array differential performance"
+    },
     "config": {
         "sort-packages": true
     }
