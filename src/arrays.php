@@ -73,7 +73,6 @@ function arrayRemoveKeys($array, $keys)
     return $array;
 }
 
-
 /**
  * Sum the values of two arrays
  *
@@ -81,7 +80,7 @@ function arrayRemoveKeys($array, $keys)
  * @param $array2
  * @return array
  */
-function sum_arrays($array1, $array2)
+function sumArrays($array1, $array2)
 {
     $array = [];
     foreach ($array1 as $index => $value) {
@@ -246,7 +245,7 @@ if (function_exists('collect')) {
  * @param string $key
  * @return mixed
  */
-function array_unset(array $array, $key)
+function arrayUnset(array $array, $key)
 {
     // Get the value
     try {
@@ -271,4 +270,32 @@ function array_unset(array $array, $key)
 function arrayValuesNull(array $array)
 {
     return arrayValuesEqual($array, null);
+}
+
+/**
+ * @deprecated
+ *
+ * Sum the values of two arrays
+ *
+ * @param $array1
+ * @param $array2
+ * @return array
+ */
+function sum_arrays($array1, $array2)
+{
+    return sumArrays($array1, $array2);
+}
+
+/**
+ * @deprecated
+ *
+ * Remove a key from an array & return the key's value.
+ *
+ * @param array $array
+ * @param string $key
+ * @return mixed
+ */
+function array_unset(array $array, $key)
+{
+    return arrayUnset($array, $key);
 }
