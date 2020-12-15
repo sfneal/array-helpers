@@ -163,12 +163,6 @@ class ArrayHelpersTest extends TestCase
     }
 
     /** @test */
-    public function array_map_assoc()
-    {
-        $this->assertTrue(true);
-    }
-
-    /** @test */
     public function array_except()
     {
         $this->assertTrue(true);

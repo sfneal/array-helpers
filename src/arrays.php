@@ -127,18 +127,6 @@ function arrayHasKeys(array $array)
     return count($array) == count($array, COUNT_RECURSIVE);
 }
 
-/**
- * Map an array with associated keys.
- *
- * @param callable $f
- * @param array $a
- * @return array
- */
-function array_map_assoc(callable $f, $a)
-{
-    return array_column(array_map($f, array_keys($a), $a), 1, 0);
-}
-
 if (! function_exists('array_except')) {
     /**
      * Remove specific arrays of keys without modifying the original array.
