@@ -10,7 +10,7 @@
  * @param bool $preserve_keys
  * @return array
  */
-function arrayChunks(array $array, $min = 0, $max = null, $no_remainders = false, $preserve_keys = true)
+function arrayChunks(array $array, $min = 0, $max = null, $no_remainders = false, $preserve_keys = true): array
 {
     $chunks = array_chunk($array, chunkSizer(count($array), $min, $max), $preserve_keys);
 
@@ -29,11 +29,11 @@ function arrayChunks(array $array, $min = 0, $max = null, $no_remainders = false
 /**
  * Flatten a multidimensional array into a 2D array without nested keys.
  *
- * @param $array
+ * @param array $array
  * @param bool $nest_keys
  * @return array
  */
-function arrayFlattenKeys($array, $nest_keys = true)
+function arrayFlattenKeys(array $array, $nest_keys = true): array
 {
     $flat = [];
     foreach (array_keys($array) as $key) {
@@ -57,11 +57,11 @@ function arrayFlattenKeys($array, $nest_keys = true)
 /**
  * Remove particular keys from a multidimensional array.
  *
- * @param $array
- * @param $keys
+ * @param array $array
+ * @param array|string $keys
  * @return array
  */
-function arrayRemoveKeys($array, $keys)
+function arrayRemoveKeys(array $array, $keys): array
 {
     $all_keys = array_keys($array);
     foreach ((array) $keys as $key) {
@@ -76,11 +76,11 @@ function arrayRemoveKeys($array, $keys)
 /**
  * Sum the values of two arrays.
  *
- * @param $array1
- * @param $array2
+ * @param array $array1
+ * @param array $array2
  * @return array
  */
-function sumArrays($array1, $array2)
+function sumArrays(array $array1, array $array2): array
 {
     $array = [];
     foreach ($array1 as $index => $value) {
@@ -96,7 +96,7 @@ function sumArrays($array1, $array2)
  * @param array $array
  * @return bool
  */
-function arrayValuesUnique(array $array)
+function arrayValuesUnique(array $array): bool
 {
     // Count the number of unique array values
     // Check to see if there is more than unique array_value
@@ -110,7 +110,7 @@ function arrayValuesUnique(array $array)
  * @param mixed $value
  * @return bool
  */
-function arrayValuesEqual(array $array, $value)
+function arrayValuesEqual(array $array, $value): bool
 {
     // Check if all array values are equal to a certain value
     return count(array_keys($array, $value)) == count($array);
@@ -122,7 +122,7 @@ function arrayValuesEqual(array $array, $value)
  * @param array $array
  * @return bool
  */
-function arrayHasKeys(array $array)
+function arrayHasKeys(array $array): bool
 {
     return count($array) == count($array, COUNT_RECURSIVE);
 }
@@ -135,7 +135,7 @@ if (! function_exists('array_except')) {
      * @param array $except
      * @return array
      */
-    function array_except(array $original, array $except)
+    function array_except(array $original, array $except): array
     {
         return array_diff_key($original, array_flip((array) $except));
     }
@@ -156,7 +156,7 @@ if (! function_exists('array_except')) {
  * @param int $divisor
  * @return int $remainder lowest calculated remainder
  */
-function chunkSizer($array_size, $min = 0, $max = null, $divisor = 2)
+function chunkSizer(int $array_size, $min = 0, $max = null, $divisor = 2): int
 {
     // If the size of the array is a perfect square, return the square root
     if (gmp_perfect_square($array_size) == true) {
@@ -231,7 +231,7 @@ if (function_exists('collect')) {
  * @param string $key
  * @return mixed
  */
-function arrayUnset(array $array, $key)
+function arrayUnset(array $array, string $key)
 {
     // Get the value
     try {
@@ -253,7 +253,7 @@ function arrayUnset(array $array, $key)
  * @param array $array
  * @return bool
  */
-function arrayValuesNull(array $array)
+function arrayValuesNull(array $array): bool
 {
     return arrayValuesEqual($array, null);
 }
@@ -267,21 +267,20 @@ function arrayValuesNull(array $array)
  * @param $array2
  * @return array
  */
-function sum_arrays($array1, $array2)
+function sum_arrays(array $array1, array $array2): array
 {
     return sumArrays($array1, $array2);
 }
 
 /**
- * @deprecated
- *
  * Remove a key from an array & return the key's value.
  *
  * @param array $array
  * @param string $key
  * @return mixed
+ * @deprecated
  */
-function array_unset(array $array, $key)
+function array_unset(array $array, string $key)
 {
     return arrayUnset($array, $key);
 }
