@@ -222,7 +222,7 @@ class ArrayHelpersTest extends TestCase
             'red' => 'Detroit',
             'green' => 'Dallas',
             'blue' => 'Vancouver',
-            'purple' => 'Los Angeles'
+            'purple' => 'Los Angeles',
         ];
 
         $red = arrayUnset($array, 'red');
@@ -239,7 +239,7 @@ class ArrayHelpersTest extends TestCase
             'red' => 'Detroit',
             'green' => 'Dallas',
             'blue' => 'Vancouver',
-            'purple' => 'Los Angeles'
+            'purple' => 'Los Angeles',
         ];
 
         $isNotNull = arrayValuesNull($array);
@@ -249,7 +249,7 @@ class ArrayHelpersTest extends TestCase
             'red' => null,
             'green' => null,
             'blue' => null,
-            'purple' => null
+            'purple' => null,
         ];
 
         $isNull = arrayValuesNull($array2);
