@@ -198,8 +198,6 @@ function chunkSizer($array_size, $min = 0, $max = null, $divisor = 2)
 
 /**
  * Only declare function if Illuminate/Collection is installed.
- *
- * todo: add composer package suggestion
  */
 if (function_exists('collect')) {
     /**
