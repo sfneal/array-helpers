@@ -28,3 +28,8 @@ All notable changes to `array-helpers` will be documented in this file
 
 ## 0.3.1 - 2020-12-11
 - fix support for php8
+
+
+## 0.3.2 - 2020-12-15
+- add full test suite
+- add improved type hinting
