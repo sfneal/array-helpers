@@ -165,13 +165,39 @@ class ArrayHelpersTest extends TestCase
     /** @test */
     public function array_except()
     {
-        $this->assertTrue(true);
+        // Array of values
+        $array = [
+            'red' => 22,
+            'green' => 44,
+            'blue' => 23,
+            'purple' => 23,
+        ];
+
+        // Keys to remove
+        $except = ['red', 'green'];
+
+        // Array without exception keys
+        $new = array_except($array, $except);
+
+        $expected = [
+            'blue' => 23,
+            'purple' => 23,
+        ];
+
+        $this->assertTrue($new === $expected);
     }
 
     /** @test */
     public function chunkSizer()
     {
-        $this->assertTrue(true);
+        $size = chunkSizer(9, 2, 3);
+        $this->assertTrue($size == 3);
+
+        $size2 = chunkSizer(10, 2, 5);
+        $this->assertTrue($size2 == 2);
+
+        $size3 = chunkSizer(12, 3, 4, 3);
+        $this->assertTrue($size3 == 3);
     }
 
     /** @test */
