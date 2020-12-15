@@ -203,18 +203,52 @@ class ArrayHelpersTest extends TestCase
     /** @test */
     public function array_diff_flat()
     {
-        $this->assertTrue(true);
+        $first = ['red', 'green', 'blue', 'purple'];
+        $second = ['yellow', 'green', 'black', 'purple'];
+
+        $diff = array_diff_flat($first, $second);
+        $expected = ['red', 'blue'];
+        $this->assertTrue($diff === $expected);
     }
 
     /** @test */
     public function arrayUnset()
     {
-        $this->assertTrue(true);
+        $array = [
+            'red' => 'Detroit',
+            'green' => 'Dallas',
+            'blue' => 'Vancouver',
+            'purple' => 'Los Angeles'
+        ];
+
+        $red = arrayUnset($array, 'red');
+        $this->assertTrue($red === 'Detroit');
+
+        $blue = arrayUnset($array, 'blue');
+        $this->assertTrue($blue === 'Vancouver');
     }
 
     /** @test */
     public function arrayValuesNull()
     {
-        $this->assertTrue(true);
+        $array = [
+            'red' => 'Detroit',
+            'green' => 'Dallas',
+            'blue' => 'Vancouver',
+            'purple' => 'Los Angeles'
+        ];
+
+        $isNotNull = arrayValuesNull($array);
+        $this->assertFalse($isNotNull);
+
+        $array2 = [
+            'red' => null,
+            'green' => null,
+            'blue' => null,
+            'purple' => null
+        ];
+
+        $isNull = arrayValuesNull($array2);
+        $this->assertTrue($isNull);
     }
 }
