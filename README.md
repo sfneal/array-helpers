@@ -1,7 +1,8 @@
 # PHP Array Helpers
 
+[![Packagist PHP support](https://img.shields.io/packagist/php-v/sfneal/array-helpers)](https://packagist.org/packages/sfneal/array-helpers)
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/sfneal/array-helpers.svg?style=flat-square)](https://packagist.org/packages/sfneal/array-helpers)
-[![Build Status](https://img.shields.io/travis/sfneal/array-helpers/master.svg?style=flat-square)](https://travis-ci.org/sfneal/array-helpers)
+[![Build Status](https://travis-ci.com/sfneal/array-helpers.svg?branch=master&style=flat-square)](https://travis-ci.com/sfneal/array-helpers)
 [![Quality Score](https://img.shields.io/scrutinizer/g/sfneal/array-helpers.svg?style=flat-square)](https://scrutinizer-ci.com/g/sfneal/array-helpers)
 [![Total Downloads](https://img.shields.io/packagist/dt/sfneal/array-helpers.svg?style=flat-square)](https://packagist.org/packages/sfneal/array-helpers)
 
