@@ -1,5 +1,7 @@
 <?php
 
+use Sfneal\Helpers\Arrays\ArrayHelpers;
+
 /**
  * Returns a chunked array with calculated chunk size.
  *
@@ -12,18 +14,7 @@
  */
 function arrayChunks(array $array, $min = 0, $max = null, $no_remainders = false, $preserve_keys = true): array
 {
-    $chunks = array_chunk($array, chunkSizer(count($array), $min, $max), $preserve_keys);
-
-    // Check if the first chunk is the same length as the last chunk
-    if ($no_remainders && count($chunks[0]) != count(array_reverse($chunks)[0])) {
-        $remainder = array_pop($chunks);
-        $last_chunk = array_pop($chunks);
-
-        // Add the remainder chunk to the last equal sized chunk
-        $chunks[] = array_merge($last_chunk, $remainder);
-    }
-
-    return $chunks;
+    return (new ArrayHelpers($array))->arrayChunks($min, $max, $no_remainders, $preserve_keys);
 }
 
 /**
@@ -35,23 +26,7 @@ function arrayChunks(array $array, $min = 0, $max = null, $no_remainders = false
  */
 function arrayFlattenKeys(array $array, $nest_keys = true): array
 {
-    $flat = [];
-    foreach (array_keys($array) as $key) {
-        if (is_array($array[$key])) {
-            // If the key is an array, add each children keys to flattened array
-            foreach ($array[$key] as $k => $v) {
-                if ($nest_keys) {
-                    $flat[$key.'_'.$k] = $v;
-                } else {
-                    $flat[$k] = $v;
-                }
-            }
-        } else {
-            $flat[$key] = $array[$key];
-        }
-    }
-
-    return $flat;
+    return (new ArrayHelpers($array))->arrayFlattenKeys($nest_keys);
 }
 
 /**
@@ -63,14 +38,7 @@ function arrayFlattenKeys(array $array, $nest_keys = true): array
  */
 function arrayRemoveKeys(array $array, $keys): array
 {
-    $all_keys = array_keys($array);
-    foreach ((array) $keys as $key) {
-        if (in_array($key, $all_keys)) {
-            unset($array[$key]);
-        }
-    }
-
-    return $array;
+    return (new ArrayHelpers($array))->arrayRemoveKeys($keys);
 }
 
 /**
@@ -82,12 +50,7 @@ function arrayRemoveKeys(array $array, $keys): array
  */
 function sumArrays(array $array1, array $array2): array
 {
-    $array = [];
-    foreach ($array1 as $index => $value) {
-        $array[$index] = isset($array2[$index]) ? $array2[$index] + $value : $value;
-    }
-
-    return $array;
+    return (new ArrayHelpers($array1))->sumArrays($array2);
 }
 
 /**
@@ -98,9 +61,7 @@ function sumArrays(array $array1, array $array2): array
  */
 function arrayValuesUnique(array $array): bool
 {
-    // Count the number of unique array values
-    // Check to see if there is more than unique array_value
-    return count(array_unique(array_values($array))) > 1;
+    return (new ArrayHelpers($array))->arrayValuesUnique();
 }
 
 /**
@@ -112,8 +73,7 @@ function arrayValuesUnique(array $array): bool
  */
 function arrayValuesEqual(array $array, $value): bool
 {
-    // Check if all array values are equal to a certain value
-    return count(array_keys($array, $value)) == count($array);
+    return (new ArrayHelpers($array))->arrayValuesEqual($value);
 }
 
 /**
@@ -124,7 +84,7 @@ function arrayValuesEqual(array $array, $value): bool
  */
 function arrayHasKeys(array $array): bool
 {
-    return count($array) == count($array, COUNT_RECURSIVE);
+    return (new ArrayHelpers($array))->arrayHasKeys();
 }
 
 if (! function_exists('array_except')) {
@@ -137,7 +97,7 @@ if (! function_exists('array_except')) {
      */
     function array_except(array $original, array $except): array
     {
-        return array_diff_key($original, array_flip((array) $except));
+        return (new ArrayHelpers($original))->array_except($except);
     }
 }
 
@@ -233,18 +193,7 @@ if (function_exists('collect')) {
  */
 function arrayUnset(array $array, string $key)
 {
-    // Get the value
-    try {
-        $value = $array[$key];
-    } catch (ErrorException $exception) {
-        $value = null;
-    }
-
-    // Remove the value from the array
-    unset($array[$key]);
-
-    // Return the value
-    return $value;
+    return (new ArrayHelpers($array))->arrayUnset($key);
 }
 
 /**
@@ -255,7 +204,7 @@ function arrayUnset(array $array, string $key)
  */
 function arrayValuesNull(array $array): bool
 {
-    return arrayValuesEqual($array, null);
+    return (new ArrayHelpers($array))->arrayValuesNull();
 }
 
 /**
@@ -273,12 +222,13 @@ function sum_arrays(array $array1, array $array2): array
 }
 
 /**
+ * @deprecated
+ *
  * Remove a key from an array & return the key's value.
  *
  * @param array $array
  * @param string $key
  * @return mixed
- * @deprecated
  */
 function array_unset(array $array, string $key)
 {
