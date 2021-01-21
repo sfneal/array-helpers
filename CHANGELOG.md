@@ -33,3 +33,9 @@ All notable changes to `array-helpers` will be documented in this file
 ## 0.3.2 - 2020-12-15
 - add full test suite
 - add improved type hinting
+
+
+## 1.0.0 - 2021-01-21
+- initial production release
+- make ArrayHelpers class that holds array-helpers functionality
+- cut autoloading of arrays.php helper functions
