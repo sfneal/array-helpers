@@ -1,6 +1,7 @@
 <?php
 
 use Sfneal\Helpers\Arrays\ArrayHelpers;
+use Sfneal\Helpers\Arrays\ChunkSizer;
 
 /**
  * Returns a chunked array with calculated chunk size.
@@ -118,42 +119,30 @@ if (! function_exists('array_except')) {
  */
 function chunkSizer(int $array_size, $min = 0, $max = null, $divisor = 2): int
 {
-    // If the size of the array is a perfect square, return the square root
-    if (gmp_perfect_square($array_size) == true) {
-        return sqrt($array_size);
-    }
+    return ChunkSizer::execute($array_size, $min, $max, $divisor);
+}
 
-    // If min and max are the same return that value
-    elseif ($min == $max) {
-        return $min;
-    }
+/**
+ * Remove a key from an array & return the key's value.
+ *
+ * @param array $array
+ * @param string $key
+ * @return mixed
+ */
+function arrayUnset(array $array, string $key)
+{
+    return (new ArrayHelpers($array))->arrayUnset($key);
+}
 
-    $max = (isset($max) ? $max : $array_size);
-    $sizes = [];
-    while ($divisor < $max) {
-        $sizes[$divisor] = [
-            // Number of chunks
-            'rows'=> floor($array_size / $divisor),
-
-            // Items in each chunk
-            'cols' => $divisor,
-
-            // Left over items in last chunk
-            'remainder' => $array_size % $divisor,
-        ];
-        $divisor++;
-    }
-
-    // Filter sizes by column values
-    return min(array_filter(array_column($sizes, 'cols', 'cols'), function ($size) use ($min, $max, $sizes) {
-        return
-            // Check that the remainder is no more than half of the number of columns
-            ($sizes[$size]['remainder'] == 0 || $sizes[$size]['remainder'] >= $size / 2) &&
-
-            // Check that the number of columns is greater than or equal than min and less than or equal than max
-            $min <= $size && $size <= $max;
-    }
-    ));
+/**
+ * Determine if all values in an array are null.
+ *
+ * @param array $array
+ * @return bool
+ */
+function arrayValuesNull(array $array): bool
+{
+    return (new ArrayHelpers($array))->arrayValuesNull();
 }
 
 /**
@@ -182,29 +171,6 @@ if (function_exists('collect')) {
         // Return as Collection
         return $collection;
     }
-}
-
-/**
- * Remove a key from an array & return the key's value.
- *
- * @param array $array
- * @param string $key
- * @return mixed
- */
-function arrayUnset(array $array, string $key)
-{
-    return (new ArrayHelpers($array))->arrayUnset($key);
-}
-
-/**
- * Determine if all values in an array are null.
- *
- * @param array $array
- * @return bool
- */
-function arrayValuesNull(array $array): bool
-{
-    return (new ArrayHelpers($array))->arrayValuesNull();
 }
 
 /**

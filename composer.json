@@ -17,7 +17,8 @@
     ],
     "require": {
         "php": ">=7.0",
-        "ext-gmp": "*"
+        "ext-gmp": "*",
+        "sfneal/actions": ">=1.0.0"
     },
     "require-dev": {
         "illuminate/support": "*",
