@@ -29,7 +29,7 @@ In order to autoload to the helper functions add the following path to the autol
 
 ## Usage
 
-Here's an example use of the arrayRemoveKeys method/
+Here's an example use of the arrayRemoveKeys method.
 
 ``` php
 $array = ['red' => 36, 'black' => 88, 'white' => 72];
