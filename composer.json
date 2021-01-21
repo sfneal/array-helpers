@@ -27,15 +27,15 @@
     "autoload": {
         "psr-4": {
             "Sfneal\\Helpers\\Arrays\\": "src"
-        },
-        "files": [
-            "src/arrays.php"
-        ]
+        }
     },
     "autoload-dev": {
         "psr-4": {
             "Sfneal\\Helpers\\Arrays\\Tests\\": "tests"
-        }
+        },
+        "files": [
+            "src/arrays.php"
+        ]
     },
     "scripts": {
         "test": "vendor/bin/phpunit",
