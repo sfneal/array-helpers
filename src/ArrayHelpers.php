@@ -1,8 +1,6 @@
 <?php
 
-
 namespace Sfneal\Helpers\Arrays;
-
 
 use ErrorException;
 
