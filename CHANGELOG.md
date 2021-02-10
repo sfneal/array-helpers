@@ -36,6 +36,10 @@ All notable changes to `array-helpers` will be documented in this file
 
 
 ## 1.0.0 - 2021-01-21
-- initial production release
 - make ArrayHelpers class that holds array-helpers functionality
 - cut autoloading of arrays.php helper functions
+- initial production release
+
+
+## 1.1.0 - 2021-02-10
+- cut depreciated sum_arrays & array_unset helper functions 

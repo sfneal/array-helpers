@@ -172,31 +172,3 @@ if (function_exists('collect')) {
         return $collection;
     }
 }
-
-/**
- * @deprecated
- *
- * Sum the values of two arrays
- *
- * @param $array1
- * @param $array2
- * @return array
- */
-function sum_arrays(array $array1, array $array2): array
-{
-    return sumArrays($array1, $array2);
-}
-
-/**
- * @deprecated
- *
- * Remove a key from an array & return the key's value.
- *
- * @param array $array
- * @param string $key
- * @return mixed
- */
-function array_unset(array $array, string $key)
-{
-    return arrayUnset($array, $key);
-}
