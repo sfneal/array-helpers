@@ -42,4 +42,4 @@ All notable changes to `array-helpers` will be documented in this file
 
 
 ## 1.1.0 - 2021-02-10
-- cut depreciated sum_arrays & array_unset helper functions 
+- cut depreciated sum_arrays & array_unset helper functions
