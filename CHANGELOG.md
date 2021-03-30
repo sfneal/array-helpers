@@ -42,4 +42,9 @@ All notable changes to `array-helpers` will be documented in this file
 
 
 ## 1.1.0 - 2021-02-10
-- cut depreciated sum_arrays & array_unset helper functions 
+- cut depreciated sum_arrays & array_unset helper functions
+
+
+## 1.1.1 - 2021-03-30
+- fix sfneal/actions version syntax
+- fix Travis CI config to enable code coverage uploads
