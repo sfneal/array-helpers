@@ -45,7 +45,7 @@ class ArrayHelpersTest extends TestCase
         ];
 
         // Assert chunk array is as expected
-        $this->assertTrue($chunked === $expected);
+        $this->assertEquals($expected, $chunked);
     }
 
     /** @test */
@@ -79,7 +79,7 @@ class ArrayHelpersTest extends TestCase
             '2_white' => 72,
         ];
 
-        $this->assertTrue($flat === $expected);
+        $this->assertEquals($expected, $flat);
     }
 
     /** @test */
@@ -101,7 +101,7 @@ class ArrayHelpersTest extends TestCase
             'white' => 72,
         ];
 
-        $this->assertTrue($newArray === $expected);
+        $this->assertEquals($expected, $newArray);
     }
 
     /** @test */
@@ -116,7 +116,7 @@ class ArrayHelpersTest extends TestCase
         // Expected sum array
         $expected = [37, 18, 20];
 
-        $this->assertTrue($sum === $expected);
+        $this->assertEquals($expected, $sum);
     }
 
     /** @test */
@@ -129,8 +129,7 @@ class ArrayHelpersTest extends TestCase
         ];
 
         // Determine if the array values are unique
-        $isUnique = arrayValuesUnique($unique);
-        $this->assertTrue($isUnique);
+        $this->assertTrue(arrayValuesUnique($unique));
     }
 
     /** @test */
@@ -144,8 +143,7 @@ class ArrayHelpersTest extends TestCase
         ];
 
         // Determine if the array values are unique
-        $isEqual = arrayValuesEqual($values, $value);
-        $this->assertTrue($isEqual);
+        $this->assertTrue(arrayValuesEqual($values, $value));
     }
 
     /** @test */
@@ -184,20 +182,20 @@ class ArrayHelpersTest extends TestCase
             'purple' => 23,
         ];
 
-        $this->assertTrue($new === $expected);
+        $this->assertEquals($expected, $new);
     }
 
     /** @test */
     public function chunkSizer()
     {
         $size = chunkSizer(9, 2, 3);
-        $this->assertTrue($size == 3);
+        $this->assertEquals(3, $size);
 
         $size2 = chunkSizer(10, 2, 5);
-        $this->assertTrue($size2 == 2);
+        $this->assertEquals(2, $size2);
 
         $size3 = chunkSizer(12, 3, 4, 3);
-        $this->assertTrue($size3 == 3);
+        $this->assertEquals(3, $size3);
     }
 
     /** @test */
@@ -209,7 +207,7 @@ class ArrayHelpersTest extends TestCase
 
             $diff = array_diff_flat($first, $second);
             $expected = ['red', 'blue'];
-            $this->assertTrue($diff === $expected);
+            $this->assertEquals($expected, $diff);
         } else {
             $this->assertTrue(true);
         }
@@ -226,10 +224,10 @@ class ArrayHelpersTest extends TestCase
         ];
 
         $red = arrayUnset($array, 'red');
-        $this->assertTrue($red === 'Detroit');
+        $this->assertEquals('Detroit', $red);
 
         $blue = arrayUnset($array, 'blue');
-        $this->assertTrue($blue === 'Vancouver');
+        $this->assertEquals('Vancouver', $blue);
     }
 
     /** @test */
