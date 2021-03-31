@@ -48,3 +48,8 @@ All notable changes to `array-helpers` will be documented in this file
 ## 1.1.1 - 2021-03-30
 - fix sfneal/actions version syntax
 - fix Travis CI config to enable code coverage uploads
+
+
+## 1.2.0 - 2021-03-31
+- bump min sfneal/actions version to 2.0
+- refactor `ChunkSizer` to extend `Action` instead of `ActionStatic`

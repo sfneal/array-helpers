@@ -111,15 +111,15 @@ if (! function_exists('array_except')) {
  * divisor is equal to the array size.  If a remainder of zero is not
  * found the lowest remainder is returned.
  *
- * @param int $array_size
+ * @param int $array_size size of the array
  * @param int $min minimum chunk size
- * @param null $max maximum chunk size
+ * @param int|null $max maximum chunk size
  * @param int $divisor
  * @return int $remainder lowest calculated remainder
  */
-function chunkSizer(int $array_size, $min = 0, $max = null, $divisor = 2): int
+function chunkSizer(int $array_size, int $min = 0, int $max = null, int $divisor = 2): int
 {
-    return ChunkSizer::execute($array_size, $min, $max, $divisor);
+    return (new ChunkSizer($array_size, $min, $max, $divisor))->execute();
 }
 
 /**
