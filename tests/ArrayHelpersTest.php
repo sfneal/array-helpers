@@ -186,19 +186,6 @@ class ArrayHelpersTest extends TestCase
     }
 
     /** @test */
-    public function chunkSizer()
-    {
-        $size = chunkSizer(9, 2, 3);
-        $this->assertEquals(3, $size);
-
-        $size2 = chunkSizer(10, 2, 5);
-        $this->assertEquals(2, $size2);
-
-        $size3 = chunkSizer(12, 3, 4, 3);
-        $this->assertEquals(3, $size3);
-    }
-
-    /** @test */
     public function array_diff_flat()
     {
         if (function_exists('collect')) {
