@@ -2,8 +2,6 @@
 
 namespace Sfneal\Helpers\Arrays;
 
-use ErrorException;
-
 class ArrayHelpers
 {
     /**
@@ -32,7 +30,11 @@ class ArrayHelpers
      */
     public function arrayChunks($min = 0, $max = null, $no_remainders = false, $preserve_keys = true): array
     {
-        $chunks = array_chunk($this->array, chunkSizer(count($this->array), $min, $max), $preserve_keys);
+        $chunks = array_chunk(
+            $this->array,
+            (new ChunkSizer(count($this->array), $min, $max))->execute(),
+            $preserve_keys
+        );
 
         // Check if the first chunk is the same length as the last chunk
         if ($no_remainders && count($chunks[0]) != count(array_reverse($chunks)[0])) {
@@ -161,11 +163,7 @@ class ArrayHelpers
     public function arrayUnset(string $key)
     {
         // Get the value
-        try {
-            $value = $this->array[$key];
-        } catch (ErrorException $exception) {
-            $value = null;
-        }
+        $value = $this->array[$key];
 
         // Remove the value from the array
         unset($this->array[$key]);
