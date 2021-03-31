@@ -4,6 +4,8 @@ namespace Sfneal\Helpers\Arrays;
 
 class ArrayHelpers
 {
+    // todo: remove 'array' prefix from method names
+
     /**
      * @var array
      */
