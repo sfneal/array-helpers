@@ -183,4 +183,18 @@ class ArrayHelpers
     {
         return $this->arrayValuesEqual(null);
     }
+
+    /**
+     * Retrieve a random array of elements.
+     *
+     * @param int $items
+     * @return array
+     */
+    public function random(int $items): array
+    {
+        $keys = array_rand($this->array, $items);
+        return array_filter($this->array, function ($value, $key) use ($keys) {
+            return in_array($key, $keys);
+        }, ARRAY_FILTER_USE_BOTH);
+    }
 }

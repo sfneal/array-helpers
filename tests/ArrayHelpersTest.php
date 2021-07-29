@@ -6,6 +6,8 @@ use PHPUnit\Framework\TestCase;
 
 class ArrayHelpersTest extends TestCase
 {
+    // todo: refactor to use class
+
     /** @test */
     public function arrayChunks()
     {
@@ -239,5 +241,29 @@ class ArrayHelpersTest extends TestCase
 
         $isNull = arrayValuesNull($array2);
         $this->assertTrue($isNull);
+    }
+
+    /** @test */
+    public function random()
+    {
+        $items = 3;
+        $array = [
+            'sfneal/laravel-helpers',
+            'symfony/console',
+            'spatie/laravel-view-models',
+            'webmozart/assert',
+            'psr/http-message',
+            'sebastian/global-state',
+        ];
+
+        $randoms = arrayRandom($array, $items);
+
+        $this->assertNotNull($randoms);
+        $this->assertIsArray($randoms);
+        $this->assertCount($items, $randoms);
+
+        foreach ($randoms as $random) {
+            $this->assertTrue(in_array($random, $array));
+        }
     }
 }

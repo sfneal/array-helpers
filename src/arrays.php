@@ -145,6 +145,20 @@ function arrayValuesNull(array $array): bool
     return (new ArrayHelpers($array))->arrayValuesNull();
 }
 
+if (! function_exists('arrayRandom')) {
+    /**
+     * Retrieve a random array of elements.
+     *
+     * @param array $array
+     * @param int $items
+     * @return array
+     */
+    function arrayRandom(array $array, int $items): array
+    {
+        return (new ArrayHelpers($array))->random($items);
+    }
+}
+
 /**
  * Only declare function if Illuminate/Collection is installed.
  */
