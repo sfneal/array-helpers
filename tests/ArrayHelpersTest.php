@@ -259,7 +259,6 @@ class ArrayHelpersTest extends TestCase
         $randoms = arrayRandom($array, $items);
 
         $this->assertNotNull($randoms);
-        $this->assertIsArray($randoms);
         $this->assertCount($items, $randoms);
 
         foreach ($randoms as $random) {
