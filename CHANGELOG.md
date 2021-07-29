@@ -53,3 +53,8 @@ All notable changes to `array-helpers` will be documented in this file
 ## 1.2.0 - 2021-03-31
 - bump min sfneal/actions version to 2.0
 - refactor `ChunkSizer` to extend `Action` instead of `ActionStatic`
+
+
+## 1.3.0 - 2021-07-29
+- cut illuminate/support from composer dev requirements
+- add `random` method to `ArrayHelpers` with helper function for retrieving random array elements
