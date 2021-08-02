@@ -103,6 +103,7 @@ class ArrayHelpers
      */
     public function sumArrays(array $array2): array
     {
+        // todo: add ability to pass array of arrays
         $array = [];
         foreach ($this->array as $index => $value) {
             $array[$index] = isset($array2[$index]) ? $array2[$index] + $value : $value;
