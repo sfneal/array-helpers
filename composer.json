@@ -23,7 +23,8 @@
     "require-dev": {
         "phpunit/phpunit": ">=5.7.0",
         "orchestra/testbench": ">=3.8",
-        "scrutinizer/ocular": "^1.8"
+        "scrutinizer/ocular": "^1.8",
+        "illuminate/collections": "*"
     },
     "autoload": {
         "psr-4": {
