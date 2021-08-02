@@ -24,19 +24,6 @@ class ArrayHelpersTest extends TestCase
     }
 
     /** @test */
-    public function arrayValuesUnique()
-    {
-        $unique = [
-            'red' => 22,
-            'green' => 44,
-            'blue' => 23,
-        ];
-
-        // Determine if the array values are unique
-        $this->assertTrue(arrayValuesUnique($unique));
-    }
-
-    /** @test */
     public function arrayValuesEqual()
     {
         $value = 22;
