@@ -28,22 +28,22 @@ class HelpersChunksTest extends TestCase
                     ['c' => 30, 'd' => 40],
                     ['e' => 50, 'f' => 60],
                     ['g' => 70, 'h' => 80],
-                ]
+                ],
             ],
             [
                 ['array' => $array, 'min' => 4, 'max' => 4, 'no_remainders' => true],
                 [
                     ['a' => 10, 'b' => 20, 'c' => 30, 'd' => 40],
                     ['e' => 50, 'f' => 60, 'g' => 70, 'h' => 80],
-                ]
+                ],
             ],
             [
                 ['array' => $array, 'min' => 6, 'max' => 6, 'no_remainders' => false],
                 [
                     ['a' => 10, 'b' => 20, 'c' => 30, 'd' => 40, 'e' => 50, 'f' => 60],
-                    ['g' => 70, 'h' => 80]
-                ]
-            ]
+                    ['g' => 70, 'h' => 80],
+                ],
+            ],
         ];
     }
 
