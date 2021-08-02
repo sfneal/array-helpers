@@ -5,7 +5,7 @@ namespace Sfneal\Helpers\Arrays\Tests\Feature;
 use Sfneal\Helpers\Arrays\ArrayHelpers;
 use Sfneal\Helpers\Arrays\Tests\TestCase;
 
-class HelpersChunksTest extends TestCase
+class ChunksTest extends TestCase
 {
     public function arrayChunksProvider(): array
     {
