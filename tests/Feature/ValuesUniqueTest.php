@@ -11,10 +11,31 @@ class ValuesUniqueTest extends TestCase
     {
         return [
             [
-                    [
+                [
                     'red' => 22,
                     'green' => 44,
                     'blue' => 23,
+                ]
+            ],
+            [
+                [
+                    'Marchand' => 63,
+                    'Bergeron' => 37,
+                    'Pastrnak' => 88,
+                ]
+            ],
+            [
+                [
+                    'f1' => [
+                        'Marchand' => 63,
+                        'Bergeron' => 37,
+                        'Pastrnak' => 88,
+                    ],
+                    'f2' => [
+                        'Hall' => 71,
+                        'Coyle' => 13,
+                        'Foligno' => 71,
+                    ],
                 ]
             ]
         ];
@@ -24,10 +45,29 @@ class ValuesUniqueTest extends TestCase
     {
         return [
             [
-                    [
+                [
                     'red' => 22,
                     'green' => 44,
                     'blue' => 22,
+                ]
+            ],
+            [
+                [
+                    'Marchand' => 63,
+                    'Bergeron' => 37,
+                    'Pastrnak' => 37,
+                ]
+            ],
+            [
+                [
+                    'd1' => [
+                        'McAvoy' => 73,
+                        'Grzelcyk' => 48
+                    ],
+                    'd2' => [
+                        'McAvoy' => 73,
+                        'Carlo' => 25
+                    ],
                 ]
             ]
         ];

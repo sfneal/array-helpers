@@ -119,9 +119,23 @@ class ArrayHelpers
      */
     public function arrayValuesUnique(): bool
     {
-        // Count the number of unique array values
-        // Check to see if there is more than unique array_value
-        return count(array_unique(array_values($this->array))) >= count(array_values($this->array));
+        try {
+            // Count the number of unique array values
+            // Check to see if there is more than unique array_value
+            return count(array_unique(array_values($this->array))) >= count(array_values($this->array));
+        }
+
+        // Handle nested arrays by comparing number unique keys
+        catch (\ErrorException $exception) {
+            $values = [];
+            $valueCount = 0;
+            foreach (array_values($this->array) as $value) {
+                $values = array_merge($values, $value);
+                $valueCount += count($value);
+            }
+
+            return count($values) == $valueCount;
+        }
     }
 
     /**
