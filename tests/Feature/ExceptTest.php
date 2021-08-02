@@ -13,7 +13,7 @@ class ExceptTest extends TestCase
             [
                 ['red' => 22, 'green' => 44, 'blue' => 23, 'purple' => 23],
                 ['red', 'green'],
-                ['blue' => 23, 'purple' => 23]
+                ['blue' => 23, 'purple' => 23],
             ],
             [
                 ['red' => 22, 'green' => 44, 'blue' => 23, 'purple' => 23],
