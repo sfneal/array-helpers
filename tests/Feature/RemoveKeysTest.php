@@ -64,6 +64,5 @@ class RemoveKeysTest extends TestCase
         foreach ((array) $args['keysToRemove'] as $key) {
             $this->assertArrayNotHasKey($key, $expected);
         }
-
     }
 }
