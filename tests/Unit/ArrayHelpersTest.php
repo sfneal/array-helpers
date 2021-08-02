@@ -9,31 +9,6 @@ class ArrayHelpersTest extends TestCase
     // todo: refactor to use class
 
     /** @test */
-    public function array_except()
-    {
-        // Array of values
-        $array = [
-            'red' => 22,
-            'green' => 44,
-            'blue' => 23,
-            'purple' => 23,
-        ];
-
-        // Keys to remove
-        $except = ['red', 'green'];
-
-        // Array without exception keys
-        $new = array_except($array, $except);
-
-        $expected = [
-            'blue' => 23,
-            'purple' => 23,
-        ];
-
-        $this->assertEquals($expected, $new);
-    }
-
-    /** @test */
     public function array_diff_flat()
     {
         if (function_exists('collect')) {
