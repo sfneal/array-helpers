@@ -24,23 +24,6 @@ class ArrayHelpersTest extends TestCase
     }
 
     /** @test */
-    public function arrayUnset()
-    {
-        $array = [
-            'red' => 'Detroit',
-            'green' => 'Dallas',
-            'blue' => 'Vancouver',
-            'purple' => 'Los Angeles',
-        ];
-
-        $red = arrayUnset($array, 'red');
-        $this->assertEquals('Detroit', $red);
-
-        $blue = arrayUnset($array, 'blue');
-        $this->assertEquals('Vancouver', $blue);
-    }
-
-    /** @test */
     public function arrayValuesNull()
     {
         $array = [
