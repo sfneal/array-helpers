@@ -1,6 +1,6 @@
 <?php
 
-namespace Sfneal\Helpers\Arrays\Tests\Feature;
+namespace Sfneal\Helpers\Arrays\Tests\Unit;
 
 use PHPUnit\Framework\TestCase;
 
