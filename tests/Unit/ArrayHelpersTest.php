@@ -9,40 +9,6 @@ class ArrayHelpersTest extends TestCase
     // todo: refactor to use class
 
     /** @test */
-    public function arrayFlattenKeys()
-    {
-        $array = [
-            [
-                'green' => 22,
-                'blue' => 54,
-            ],
-            [
-                'red' => 36,
-                'purple' => 78,
-            ],
-            [
-                'black' => 88,
-                'white' => 72,
-            ],
-        ];
-
-        // Flatten the array
-        $flat = arrayFlattenKeys($array);
-
-        // Expected flattened array
-        $expected = [
-            '0_green' => 22,
-            '0_blue' => 54,
-            '1_red' => 36,
-            '1_purple' => 78,
-            '2_black' => 88,
-            '2_white' => 72,
-        ];
-
-        $this->assertEquals($expected, $flat);
-    }
-
-    /** @test */
     public function arrayRemoveKeys()
     {
         $array = [
