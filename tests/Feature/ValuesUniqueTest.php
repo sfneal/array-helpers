@@ -15,14 +15,14 @@ class ValuesUniqueTest extends TestCase
                     'red' => 22,
                     'green' => 44,
                     'blue' => 23,
-                ]
+                ],
             ],
             [
                 [
                     'Marchand' => 63,
                     'Bergeron' => 37,
                     'Pastrnak' => 88,
-                ]
+                ],
             ],
             [
                 [
@@ -36,8 +36,8 @@ class ValuesUniqueTest extends TestCase
                         'Coyle' => 13,
                         'Foligno' => 71,
                     ],
-                ]
-            ]
+                ],
+            ],
         ];
     }
 
@@ -49,27 +49,27 @@ class ValuesUniqueTest extends TestCase
                     'red' => 22,
                     'green' => 44,
                     'blue' => 22,
-                ]
+                ],
             ],
             [
                 [
                     'Marchand' => 63,
                     'Bergeron' => 37,
                     'Pastrnak' => 37,
-                ]
+                ],
             ],
             [
                 [
                     'd1' => [
                         'McAvoy' => 73,
-                        'Grzelcyk' => 48
+                        'Grzelcyk' => 48,
                     ],
                     'd2' => [
                         'McAvoy' => 73,
-                        'Carlo' => 25
+                        'Carlo' => 25,
                     ],
-                ]
-            ]
+                ],
+            ],
         ];
     }
 
