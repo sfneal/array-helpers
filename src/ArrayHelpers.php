@@ -157,6 +157,11 @@ class ArrayHelpers
      */
     public function arrayHasKeys(): bool
     {
+        // Array doesn't have keys if the array is the same as the array values
+        if ($this->array == array_values($this->array)) {
+            return false;
+        }
+
         return count($this->array) == count($this->array, COUNT_RECURSIVE);
     }
 
