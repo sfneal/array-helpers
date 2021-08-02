@@ -121,7 +121,7 @@ class ArrayHelpers
     {
         // Count the number of unique array values
         // Check to see if there is more than unique array_value
-        return count(array_unique(array_values($this->array))) > 1;
+        return count(array_unique(array_values($this->array))) >= count(array_values($this->array));
     }
 
     /**
