@@ -13,9 +13,10 @@ class SumTest extends TestCase
         $randArrays = function () {
             $a = [rand(0, 1000), rand(0, 1000), rand(0, 1000)];
             $b = [rand(0, 1000), rand(0, 1000), rand(0, 1000)];
+
             return [
                 [$a, $b],
-                [$a[0] + $b[0], $a[1] + $b[1], $a[2] + $b[2]]
+                [$a[0] + $b[0], $a[1] + $b[1], $a[2] + $b[2]],
             ];
         };
 
@@ -24,7 +25,7 @@ class SumTest extends TestCase
             $randArrays(),
             $randArrays(),
             $randArrays(),
-            $randArrays()
+            $randArrays(),
         ];
     }
 
