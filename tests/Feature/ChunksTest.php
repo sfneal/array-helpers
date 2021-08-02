@@ -54,13 +54,15 @@ class ChunksTest extends TestCase
      */
     public function test_array_chunks(array $args, array $expected)
     {
-        $this->assertArrayChunks($args, $expected);
+        $this->assertArrayChunks(
+            $args,
+            $expected,
+            (new ArrayHelpers($args['array']))->arrayChunks($args['min'], $args['max'], $args['no_remainders'])
+        );
     }
 
-    public function assertArrayChunks(array $args, array $expected)
+    public function assertArrayChunks(array $args, array $expected, $chunked)
     {
-        $chunked = (new ArrayHelpers($args['array']))->arrayChunks($args['min'], $args['max'], $args['no_remainders']);
-
         $this->assertIsArray($chunked);
         $this->assertEquals($expected, $chunked);
         foreach ($chunked as $chunk) {

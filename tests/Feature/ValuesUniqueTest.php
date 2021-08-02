@@ -78,7 +78,10 @@ class ValuesUniqueTest extends TestCase
      */
     public function test_array_values_are_unique(array $array)
     {
-        $this->assertValuesAreUnique($array);
+        $this->assertValuesAreUnique(
+            $array,
+            (new ArrayHelpers($array))->arrayValuesUnique()
+        );
     }
 
     /**
@@ -86,21 +89,20 @@ class ValuesUniqueTest extends TestCase
      */
     public function test_array_values_not_unique(array $array)
     {
-        $this->assertValuesNotUnique($array);
+        $this->assertValuesNotUnique(
+            $array,
+            (new ArrayHelpers($array))->arrayValuesUnique()
+        );
     }
 
-    public function assertValuesAreUnique(array $array)
+    public function assertValuesAreUnique(array $array, $unique)
     {
-        $unique = (new ArrayHelpers($array))->arrayValuesUnique();
-
         $this->assertIsBool($unique);
         $this->assertTrue($unique);
     }
 
-    public function assertValuesNotUnique(array $array)
+    public function assertValuesNotUnique(array $array, $unique)
     {
-        $unique = (new ArrayHelpers($array))->arrayValuesUnique();
-
         $this->assertIsBool($unique);
         $this->assertFalse($unique);
     }

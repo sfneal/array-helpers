@@ -140,13 +140,15 @@ class FlattenKeysTest extends TestCase
      */
     public function test_flatten_keys(array $args, array $expected)
     {
-        $this->assertFlattenKeys($args, $expected);
+        $this->assertFlattenKeys(
+            $args,
+            $expected,
+            (new ArrayHelpers($args['array']))->arrayFlattenKeys($args['nest_keys'])
+        );
     }
 
-    public function assertFlattenKeys(array $args, array $expected)
+    public function assertFlattenKeys(array $args, array $expected, $flat)
     {
-        $flat = (new ArrayHelpers($args['array']))->arrayFlattenKeys($args['nest_keys']);
-
         $this->assertEquals($expected, $flat);
         $this->assertIsArray($flat);
 
