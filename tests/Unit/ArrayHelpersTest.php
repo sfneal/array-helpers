@@ -24,30 +24,6 @@ class ArrayHelpersTest extends TestCase
     }
 
     /** @test */
-    public function arrayValuesNull()
-    {
-        $array = [
-            'red' => 'Detroit',
-            'green' => 'Dallas',
-            'blue' => 'Vancouver',
-            'purple' => 'Los Angeles',
-        ];
-
-        $isNotNull = arrayValuesNull($array);
-        $this->assertFalse($isNotNull);
-
-        $array2 = [
-            'red' => null,
-            'green' => null,
-            'blue' => null,
-            'purple' => null,
-        ];
-
-        $isNull = arrayValuesNull($array2);
-        $this->assertTrue($isNull);
-    }
-
-    /** @test */
     public function random()
     {
         $items = 3;
