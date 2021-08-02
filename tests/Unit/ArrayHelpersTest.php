@@ -9,20 +9,6 @@ class ArrayHelpersTest extends TestCase
     // todo: refactor to use class
 
     /** @test */
-    public function arrayValuesEqual()
-    {
-        $value = 22;
-        $values = [
-            'red' => $value,
-            'green' => $value,
-            'blue' => $value,
-        ];
-
-        // Determine if the array values are unique
-        $this->assertTrue(arrayValuesEqual($values, $value));
-    }
-
-    /** @test */
     public function arrayHasKeys()
     {
         $values = [
