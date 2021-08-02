@@ -14,7 +14,17 @@ class ExceptTest extends TestCase
                 ['red' => 22, 'green' => 44, 'blue' => 23, 'purple' => 23],
                 ['red', 'green'],
                 ['blue' => 23, 'purple' => 23]
-            ]
+            ],
+            [
+                ['red' => 22, 'green' => 44, 'blue' => 23, 'purple' => 23],
+                ['blue'],
+                ['red' => 22, 'green' => 44, 'purple' => 23],
+            ],
+            [
+                ['red' => 36, 'black' => 88, 'white' => 72, 'blue' => 4],
+                ['black', 'white'],
+                ['red' => 36, 'blue' => 4],
+            ],
         ];
     }
 
