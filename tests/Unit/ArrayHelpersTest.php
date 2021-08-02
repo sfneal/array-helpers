@@ -9,48 +9,6 @@ class ArrayHelpersTest extends TestCase
     // todo: refactor to use class
 
     /** @test */
-    public function arrayChunks()
-    {
-        // Array to chunk
-        $array = [
-            'a' => 10,
-            'b' => 20,
-            'c' => 30,
-            'd' => 40,
-            'e' => 50,
-            'f' => 60,
-            'g' => 70,
-            'h' => 80,
-        ];
-
-        // Chunk the array
-        $chunked = arrayChunks($array, 2, 2, true);
-
-        // Expected chunked array
-        $expected = [
-            0 => [
-                'a' => 10,
-                'b' => 20,
-            ],
-            1 => [
-                'c' => 30,
-                'd' => 40,
-            ],
-            2 => [
-                'e' => 50,
-                'f' => 60,
-            ],
-            3 => [
-                'g' => 70,
-                'h' => 80,
-            ],
-        ];
-
-        // Assert chunk array is as expected
-        $this->assertEquals($expected, $chunked);
-    }
-
-    /** @test */
     public function arrayFlattenKeys()
     {
         $array = [
