@@ -14,9 +14,9 @@ class ValuesEqualTest extends TestCase
                 [
                     'red' => 22,
                     'green' => 22,
-                    'blue' => 22
+                    'blue' => 22,
                 ],
-                22
+                22,
             ],
             [
                 [
@@ -24,7 +24,7 @@ class ValuesEqualTest extends TestCase
                     'Bergeron' => 'f',
                     'Pastrnak' => 'f',
                 ],
-                'f'
+                'f',
             ],
         ];
     }
@@ -36,9 +36,9 @@ class ValuesEqualTest extends TestCase
                 [
                     'red' => 22,
                     'green' => 23,
-                    'blue' => 24
+                    'blue' => 24,
                 ],
-                22
+                22,
             ],
             [
                 [
@@ -46,7 +46,7 @@ class ValuesEqualTest extends TestCase
                     'Bergeron' => 'f',
                     'McAvoy' => 'd',
                 ],
-                'f'
+                'f',
             ],
         ];
     }
