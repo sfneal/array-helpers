@@ -9,28 +9,6 @@ class ArrayHelpersTest extends TestCase
     // todo: refactor to use class
 
     /** @test */
-    public function arrayRemoveKeys()
-    {
-        $array = [
-            'red' => 36,
-            'black' => 88,
-            'white' => 72,
-        ];
-
-        // Remove a key from the array
-        $keyToRemove = 'red';
-        $newArray = arrayRemoveKeys($array, $keyToRemove);
-
-        // Expected array without 'red' key
-        $expected = [
-            'black' => 88,
-            'white' => 72,
-        ];
-
-        $this->assertEquals($expected, $newArray);
-    }
-
-    /** @test */
     public function sumArrays()
     {
         $array1 = [22, 14, 14];
