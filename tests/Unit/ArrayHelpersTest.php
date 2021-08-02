@@ -9,21 +9,6 @@ class ArrayHelpersTest extends TestCase
     // todo: refactor to use class
 
     /** @test */
-    public function sumArrays()
-    {
-        $array1 = [22, 14, 14];
-        $array2 = [15, 4, 6];
-
-        // Sum the values of the array
-        $sum = sumArrays($array1, $array2);
-
-        // Expected sum array
-        $expected = [37, 18, 20];
-
-        $this->assertEquals($expected, $sum);
-    }
-
-    /** @test */
     public function arrayValuesEqual()
     {
         $value = 22;
