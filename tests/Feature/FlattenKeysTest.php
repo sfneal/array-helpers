@@ -17,7 +17,7 @@ class FlattenKeysTest extends TestCase
                         ['red' => 36, 'purple' => 78],
                         ['black' => 88, 'white' => 72],
                     ],
-                    'nest_keys' => true
+                    'nest_keys' => true,
                 ],
                 [
                     '0_green' => 22,
@@ -35,7 +35,7 @@ class FlattenKeysTest extends TestCase
                         ['green' => 22, 'blue' => 54, 'red' => 36],
                         ['purple' => 78, 'black' => 88, 'white' => 72],
                     ],
-                    'nest_keys' => true
+                    'nest_keys' => true,
                 ],
                 [
                     '0_green' => 22,
@@ -53,9 +53,9 @@ class FlattenKeysTest extends TestCase
                         ['green' => 22, 'blue' => 54],
                         ['red' => 36],
                         ['purple' => 78],
-                        ['black' => 88, 'white' => 72]
+                        ['black' => 88, 'white' => 72],
                     ],
-                    'nest_keys' => true
+                    'nest_keys' => true,
                 ],
                 [
                     '0_green' => 22,
@@ -101,7 +101,7 @@ class FlattenKeysTest extends TestCase
                             ],
                         ],
                     ],
-                    'nest_keys' => true
+                    'nest_keys' => true,
                 ],
                 [
                     '0_green' => [
