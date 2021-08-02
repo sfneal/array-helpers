@@ -13,7 +13,7 @@ class UnsetTest extends TestCase
             [
                 ['red' => 22, 'green' => 44, 'blue' => 23, 'purple' => 23],
                 'green',
-                44
+                44,
             ],
             [
                 ['red' => 22, 'green' => 44, 'blue' => 23, 'purple' => 23],
