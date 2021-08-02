@@ -14,8 +14,8 @@ class HasKeysTest extends TestCase
                 [
                     'red' => 22,
                     'green' => 22,
-                    'blue' => 22
-                ]
+                    'blue' => 22,
+                ],
             ],
             [
                 [
@@ -34,7 +34,7 @@ class HasKeysTest extends TestCase
                     'f' => 60,
                     'g' => 70,
                     'h' => 80,
-                ]
+                ],
             ],
         ];
     }
@@ -47,7 +47,7 @@ class HasKeysTest extends TestCase
                     'red',
                     'green',
                     'blue',
-                ]
+                ],
             ],
             [
                 [
@@ -66,7 +66,7 @@ class HasKeysTest extends TestCase
                     'f',
                     'g',
                     'h',
-                ]
+                ],
             ],
         ];
     }
