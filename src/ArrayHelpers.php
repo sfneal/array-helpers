@@ -178,6 +178,7 @@ class ArrayHelpers
 
     /**
      * Remove a key from an array & return the key's value.
+     * // todo: refactor to arrayPop
      *
      * @param string $key
      * @return mixed
