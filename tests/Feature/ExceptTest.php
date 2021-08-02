@@ -42,6 +42,20 @@ class ExceptTest extends TestCase
         );
     }
 
+    /**
+     * @dataProvider arrayExceptProvider
+     * @param array $array
+     * @param array $except
+     * @param array $expected
+     */
+    public function test_array_except_helper(array $array, array $except, array $expected)
+    {
+        $this->assertArrayExcept(
+            array_except($array, $except),
+            $expected
+        );
+    }
+
     public function assertArrayExcept($actual, $expected)
     {
         $this->assertIsArray($actual);

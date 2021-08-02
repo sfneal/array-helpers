@@ -95,6 +95,28 @@ class ValuesUniqueTest extends TestCase
         );
     }
 
+    /**
+     * @dataProvider arrayValuesUniqueProvider
+     */
+    public function test_array_values_are_unique_helper(array $array)
+    {
+        $this->assertValuesAreUnique(
+            $array,
+            arrayValuesUnique($array)
+        );
+    }
+
+    /**
+     * @dataProvider arrayValuesNotUniqueProvider
+     */
+    public function test_array_values_not_unique_helper(array $array)
+    {
+        $this->assertValuesNotUnique(
+            $array,
+            arrayValuesUnique($array)
+        );
+    }
+
     public function assertValuesAreUnique(array $array, $unique)
     {
         $this->assertIsBool($unique);

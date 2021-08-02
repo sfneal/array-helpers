@@ -147,6 +147,20 @@ class FlattenKeysTest extends TestCase
         );
     }
 
+    /**
+     * @dataProvider flattenKeysProvider
+     * @param array $args
+     * @param array $expected
+     */
+    public function test_flatten_keys_helper(array $args, array $expected)
+    {
+        $this->assertFlattenKeys(
+            $args,
+            $expected,
+            arrayFlattenKeys($args['array'], $args['nest_keys'])
+        );
+    }
+
     public function assertFlattenKeys(array $args, array $expected, $flat)
     {
         $this->assertEquals($expected, $flat);

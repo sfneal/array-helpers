@@ -93,6 +93,28 @@ class HasKeysTest extends TestCase
         );
     }
 
+    /**
+     * @dataProvider arrayHasKeysProvider
+     */
+    public function test_array_array_has_keys_helper(array $array)
+    {
+        $this->assertHasKeys(
+            $array,
+            arrayHasKeys($array)
+        );
+    }
+
+    /**
+     * @dataProvider arrayDoesntHaveKeysProvider
+     */
+    public function test_array_doesnt_have_keys_helper(array $array)
+    {
+        $this->assertDoesntHaveKeys(
+            $array,
+            arrayHasKeys($array)
+        );
+    }
+
     public function assertHasKeys(array $array, $hasKeys)
     {
         $this->assertIsBool($hasKeys);

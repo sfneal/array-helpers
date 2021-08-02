@@ -61,6 +61,20 @@ class ChunksTest extends TestCase
         );
     }
 
+    /**
+     * @dataProvider arrayChunksProvider
+     * @param array $args
+     * @param array $expected
+     */
+    public function test_array_chunks_helper(array $args, array $expected)
+    {
+        $this->assertArrayChunks(
+            $args,
+            $expected,
+            arrayChunks($args['array'], $args['min'], $args['max'], $args['no_remainders'])
+        );
+    }
+
     public function assertArrayChunks(array $args, array $expected, $chunked)
     {
         $this->assertIsArray($chunked);

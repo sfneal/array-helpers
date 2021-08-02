@@ -73,6 +73,28 @@ class ValuesEqualTest extends TestCase
         );
     }
 
+    /**
+     * @dataProvider arrayValuesEqualProvider
+     */
+    public function test_array_values_are_equal_helper(array $array, $value)
+    {
+        $this->assertValuesAreEqual(
+            $array,
+            arrayValuesEqual($array, $value)
+        );
+    }
+
+    /**
+     * @dataProvider arrayValuesNotEqualProvider
+     */
+    public function test_array_values_not_equal_helper(array $array, $value)
+    {
+        $this->assertValuesNotEqual(
+            $array,
+            arrayValuesEqual($array, $value)
+        );
+    }
+
     public function assertValuesAreEqual(array $array, $equal)
     {
         $this->assertIsBool($equal);

@@ -42,6 +42,19 @@ class SumTest extends TestCase
         );
     }
 
+    /**
+     * @dataProvider sumArrayProvider
+     * @param array $array
+     * @param array $expected
+     */
+    public function test_sum_arrays_helper(array $array, array $expected)
+    {
+        $this->assertSumArrays(
+            sumArrays($array[0], $array[1]),
+            $expected
+        );
+    }
+
     public function assertSumArrays($sum, $expected)
     {
         $this->assertEquals($expected, $sum);

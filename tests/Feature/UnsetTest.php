@@ -52,6 +52,20 @@ class UnsetTest extends TestCase
         );
     }
 
+    /**
+     * @dataProvider arrayUnsetProvider
+     * @param array $array
+     * @param $key
+     * @param $expected
+     */
+    public function test_array_unset_helper(array $array, $key, $expected)
+    {
+        $this->assertArrayUnset(
+            arrayUnset($array, $key),
+            $expected
+        );
+    }
+
     public function assertArrayUnset($actual, $expected)
     {
         $this->assertNotNull($actual);

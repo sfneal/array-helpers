@@ -58,6 +58,20 @@ class RemoveKeysTest extends TestCase
         );
     }
 
+    /**
+     * @dataProvider removeKeysProvider
+     * @param array $args
+     * @param array $expected
+     */
+    public function test_remove_keys_helpers(array $args, array $expected)
+    {
+        $this->assertRemoveKeys(
+            $args,
+            $expected,
+            arrayRemoveKeys($args['array'], $args['keysToRemove'])
+        );
+    }
+
     public function assertRemoveKeys(array $args, array $expected, $newArray)
     {
         $this->assertIsArray($newArray);
