@@ -3,6 +3,7 @@
 namespace Sfneal\Helpers\Arrays\Tests\Feature;
 
 use Illuminate\Support\Collection;
+use Sfneal\Helpers\Arrays\ArrayHelpers;
 use Sfneal\Helpers\Arrays\Tests\TestCase;
 
 class DiffFlatTest extends TestCase
@@ -39,7 +40,7 @@ class DiffFlatTest extends TestCase
 
         $this->assertDiffFlat(
             $args,
-            array_diff_flat($args[0], $args[1], $args[2]),
+            (new ArrayHelpers($args[0]))->diffFlat($args[1], $args[2]),
             $expected
         );
     }
@@ -50,6 +51,40 @@ class DiffFlatTest extends TestCase
      * @param array $expected
      */
     public function test_diff_flat_collection(array $args, array $expected)
+    {
+        // Set $toArray param
+        $args[2] = false;
+
+        $this->assertDiffFlat(
+            $args,
+            (new ArrayHelpers($args[0]))->diffFlat($args[1], $args[2]),
+            $expected
+        );
+    }
+
+    /**
+     * @dataProvider diffFlatProvider
+     * @param array $args
+     * @param array $expected
+     */
+    public function test_diff_flat_array_helper(array $args, array $expected)
+    {
+        // Set $toArray param
+        $args[2] = true;
+
+        $this->assertDiffFlat(
+            $args,
+            array_diff_flat($args[0], $args[1], $args[2]),
+            $expected
+        );
+    }
+
+    /**
+     * @dataProvider diffFlatProvider
+     * @param array $args
+     * @param array $expected
+     */
+    public function test_diff_flat_collection_helper(array $args, array $expected)
     {
         // Set $toArray param
         $args[2] = false;

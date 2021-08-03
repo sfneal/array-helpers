@@ -189,16 +189,6 @@ if (function_exists('collect')) {
      */
     function array_diff_flat(array $first, array $second, bool $toArray = true)
     {
-        $collection = collect($first)
-            ->diff($second)
-            ->flatten();
-
-        // Return as array
-        if ($toArray) {
-            return $collection->toArray();
-        }
-
-        // Return as Collection
-        return $collection;
+        return (new ArrayHelpers($first))->diffFlat($second, $toArray);
     }
 }

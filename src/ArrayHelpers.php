@@ -242,4 +242,26 @@ class ArrayHelpers
             ARRAY_FILTER_USE_BOTH
         );
     }
+
+    /**
+     * Return a flat array of values that were found in the $first array that are not found in the $second.
+     *
+     * @param array $array
+     * @param bool $toArray
+     * @return \Illuminate\Support\Collection|array
+     */
+    public function diffFlat(array $array, bool $toArray = true)
+    {
+        $collection = collect($this->array)
+            ->diff($array)
+            ->flatten();
+
+        // Return as array
+        if ($toArray) {
+            return $collection->toArray();
+        }
+
+        // Return as Collection
+        return $collection;
+    }
 }
