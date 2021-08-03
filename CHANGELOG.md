@@ -71,3 +71,8 @@ All notable changes to `array-helpers` will be documented in this file
 
 ## 1.4.1 - 2021-08-03
 - optimize `ChunkSizerTest` to use dataProviders
+
+
+## 1.5.0 - 2021-08-03
+- refactor `ArrayHelpers::arrayUnset()` method to `arrayPop()` because an element is being 'popped' from the array
+- make `ArrayHelpers::arrayUnset()` method for removing an element & returning a new array
