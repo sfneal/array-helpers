@@ -8,19 +8,6 @@ use Sfneal\Helpers\Arrays\Tests\TestCase;
 class ArrayHelpersTest extends TestCase
 {
     /** @test */
-    public function array_diff_flat()
-    {
-        if (function_exists('array_diff_flat')) {
-            $first = ['red', 'green', 'blue', 'purple'];
-            $second = ['yellow', 'green', 'black', 'purple'];
-
-            $diff = array_diff_flat($first, $second);
-            $expected = ['red', 'blue'];
-            $this->assertEquals($expected, $diff);
-        }
-    }
-
-    /** @test */
     public function random()
     {
         $items = 3;
