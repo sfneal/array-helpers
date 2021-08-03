@@ -14,10 +14,10 @@ use Sfneal\Helpers\Arrays\ChunkSizer;
  * @return array
  */
 function arrayChunks(array $array,
-                     int   $min = 0,
-                     int   $max = null,
-                     bool  $no_remainders = false,
-                     bool  $preserve_keys = true): array
+                     int $min = 0,
+                     int $max = null,
+                     bool $no_remainders = false,
+                     bool $preserve_keys = true): array
 {
     return (new ArrayHelpers($array))->arrayChunks($min, $max, $no_remainders, $preserve_keys);
 }
