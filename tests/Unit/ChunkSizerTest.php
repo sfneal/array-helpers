@@ -2,7 +2,7 @@
 
 namespace Sfneal\Helpers\Arrays\Tests\Unit;
 
-use PHPUnit\Framework\TestCase;
+use Sfneal\Helpers\Arrays\Tests\TestCase;
 
 class ChunkSizerTest extends TestCase
 {
