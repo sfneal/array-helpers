@@ -129,9 +129,9 @@ function chunkSizer(int $array_size, int $min = 0, int $max = null, int $divisor
  * @param string $key
  * @return mixed
  */
-function arrayUnset(array $array, string $key)
+function arrayPop(array $array, string $key)
 {
-    return (new ArrayHelpers($array))->arrayUnset($key);
+    return (new ArrayHelpers($array))->arrayPop($key);
 }
 
 /**

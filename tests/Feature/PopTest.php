@@ -5,9 +5,9 @@ namespace Sfneal\Helpers\Arrays\Tests\Feature;
 use Sfneal\Helpers\Arrays\ArrayHelpers;
 use Sfneal\Helpers\Arrays\Tests\TestCase;
 
-class UnsetTest extends TestCase
+class PopTest extends TestCase
 {
-    public function arrayUnsetProvider(): array
+    public function arrayPopProvider(): array
     {
         return [
             [
@@ -39,34 +39,34 @@ class UnsetTest extends TestCase
     }
 
     /**
-     * @dataProvider arrayUnsetProvider
+     * @dataProvider arrayPopProvider
      * @param array $array
      * @param $key
      * @param $expected
      */
-    public function test_array_unset(array $array, $key, $expected)
+    public function test_pop_unset(array $array, $key, $expected)
     {
-        $this->assertArrayUnset(
-            (new ArrayHelpers($array))->arrayUnset($key),
+        $this->assertPopUnset(
+            (new ArrayHelpers($array))->arrayPop($key),
             $expected
         );
     }
 
     /**
-     * @dataProvider arrayUnsetProvider
+     * @dataProvider arrayPopProvider
      * @param array $array
      * @param $key
      * @param $expected
      */
-    public function test_array_unset_helper(array $array, $key, $expected)
+    public function test_array_pop_helper(array $array, $key, $expected)
     {
-        $this->assertArrayUnset(
-            arrayUnset($array, $key),
+        $this->assertPopUnset(
+            arrayPop($array, $key),
             $expected
         );
     }
 
-    public function assertArrayUnset($actual, $expected)
+    public function assertPopUnset($actual, $expected)
     {
         $this->assertNotNull($actual);
         $this->assertEquals($expected, $actual);
