@@ -144,7 +144,7 @@ class FlattenKeysTest extends TestCase
         $this->assertFlattenKeys(
             $args,
             $expected,
-            (new ArrayHelpers($args['array']))->arrayFlattenKeys($args['nest_keys'])
+            (new ArrayHelpers($args['array']))->flattenKeys($args['nest_keys'])
         );
     }
 

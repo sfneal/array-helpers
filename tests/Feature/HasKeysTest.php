@@ -78,7 +78,7 @@ class HasKeysTest extends TestCase
     {
         $this->assertHasKeys(
             $array,
-            (new ArrayHelpers($array))->arrayHasKeys()
+            (new ArrayHelpers($array))->hasKeys()
         );
     }
 
@@ -89,7 +89,7 @@ class HasKeysTest extends TestCase
     {
         $this->assertDoesntHaveKeys(
             $array,
-            (new ArrayHelpers($array))->arrayHasKeys()
+            (new ArrayHelpers($array))->hasKeys()
         );
     }
 

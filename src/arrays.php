@@ -19,7 +19,7 @@ function arrayChunks(array $array,
                      bool $no_remainders = false,
                      bool $preserve_keys = true): array
 {
-    return (new ArrayHelpers($array))->arrayChunks($min, $max, $no_remainders, $preserve_keys);
+    return (new ArrayHelpers($array))->chunks($min, $max, $no_remainders, $preserve_keys);
 }
 
 /**
@@ -31,7 +31,7 @@ function arrayChunks(array $array,
  */
 function arrayFlattenKeys(array $array, bool $nest_keys = true): array
 {
-    return (new ArrayHelpers($array))->arrayFlattenKeys($nest_keys);
+    return (new ArrayHelpers($array))->flattenKeys($nest_keys);
 }
 
 /**
@@ -43,7 +43,7 @@ function arrayFlattenKeys(array $array, bool $nest_keys = true): array
  */
 function arrayRemoveKeys(array $array, $keys): array
 {
-    return (new ArrayHelpers($array))->arrayRemoveKeys($keys);
+    return (new ArrayHelpers($array))->removeKeys($keys);
 }
 
 /**
@@ -55,7 +55,7 @@ function arrayRemoveKeys(array $array, $keys): array
  */
 function sumArrays(array $array1, array $array2): array
 {
-    return (new ArrayHelpers($array1))->sumArrays($array2);
+    return (new ArrayHelpers($array1))->sum($array2);
 }
 
 /**
@@ -66,7 +66,7 @@ function sumArrays(array $array1, array $array2): array
  */
 function arrayValuesUnique(array $array): bool
 {
-    return (new ArrayHelpers($array))->arrayValuesUnique();
+    return (new ArrayHelpers($array))->valuesUnique();
 }
 
 /**
@@ -78,7 +78,7 @@ function arrayValuesUnique(array $array): bool
  */
 function arrayValuesEqual(array $array, $value): bool
 {
-    return (new ArrayHelpers($array))->arrayValuesEqual($value);
+    return (new ArrayHelpers($array))->valuesEqual($value);
 }
 
 /**
@@ -90,7 +90,7 @@ function arrayValuesEqual(array $array, $value): bool
  */
 function arrayValuesNotEqual(array $array, $value): bool
 {
-    return (new ArrayHelpers($array))->arrayValuesNotEqual($value);
+    return (new ArrayHelpers($array))->valuesNotEqual($value);
 }
 
 /**
@@ -101,7 +101,7 @@ function arrayValuesNotEqual(array $array, $value): bool
  */
 function arrayHasKeys(array $array): bool
 {
-    return (new ArrayHelpers($array))->arrayHasKeys();
+    return (new ArrayHelpers($array))->hasKeys();
 }
 
 if (! function_exists('array_except')) {
@@ -114,7 +114,7 @@ if (! function_exists('array_except')) {
      */
     function array_except(array $original, array $except): array
     {
-        return (new ArrayHelpers($original))->array_except($except);
+        return (new ArrayHelpers($original))->except($except);
     }
 }
 
@@ -147,7 +147,7 @@ function chunkSizer(int $array_size, int $min = 0, int $max = null, int $divisor
  */
 function arrayPop(array $array, string $key)
 {
-    return (new ArrayHelpers($array))->arrayPop($key);
+    return (new ArrayHelpers($array))->pop($key);
 }
 
 /**
@@ -159,7 +159,7 @@ function arrayPop(array $array, string $key)
  */
 function arrayUnset(array $array, $keys): array
 {
-    return (new ArrayHelpers($array))->arrayUnset($keys);
+    return (new ArrayHelpers($array))->unset($keys);
 }
 
 /**
@@ -170,7 +170,7 @@ function arrayUnset(array $array, $keys): array
  */
 function arrayValuesNull(array $array): bool
 {
-    return (new ArrayHelpers($array))->arrayValuesNull();
+    return (new ArrayHelpers($array))->valuesNull();
 }
 
 if (! function_exists('arrayRandom')) {

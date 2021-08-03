@@ -54,7 +54,7 @@ class RemoveKeysTest extends TestCase
         $this->assertRemoveKeys(
             $args,
             $expected,
-            (new ArrayHelpers($args['array']))->arrayRemoveKeys($args['keysToRemove'])
+            (new ArrayHelpers($args['array']))->removeKeys($args['keysToRemove'])
         );
     }
 

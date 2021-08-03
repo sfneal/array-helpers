@@ -58,7 +58,7 @@ class ValuesEqualTest extends TestCase
     {
         $this->assertValuesAreEqual(
             $array,
-            (new ArrayHelpers($array))->arrayValuesEqual($value)
+            (new ArrayHelpers($array))->valuesEqual($value)
         );
     }
 
@@ -69,7 +69,7 @@ class ValuesEqualTest extends TestCase
     {
         $this->assertValuesAreEqual(
             $array,
-            (new ArrayHelpers($array))->arrayValuesNotEqual($value)
+            (new ArrayHelpers($array))->valuesNotEqual($value)
         );
     }
 

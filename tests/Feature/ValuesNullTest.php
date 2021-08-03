@@ -54,7 +54,7 @@ class ValuesNullTest extends TestCase
     {
         $this->assertValuesAreNull(
             $array,
-            (new ArrayHelpers($array))->arrayValuesNull()
+            (new ArrayHelpers($array))->valuesNull()
         );
     }
 
@@ -65,7 +65,7 @@ class ValuesNullTest extends TestCase
     {
         $this->assertValuesNotNull(
             $array,
-            (new ArrayHelpers($array))->arrayValuesNull()
+            (new ArrayHelpers($array))->valuesNull()
         );
     }
 

@@ -30,7 +30,7 @@ class ArrayHelpers
      * @param bool $preserve_keys
      * @return array
      */
-    public function arrayChunks(int $min = 0, int $max = null, bool $no_remainders = false, bool $preserve_keys = true): array
+    public function chunks(int $min = 0, int $max = null, bool $no_remainders = false, bool $preserve_keys = true): array
     {
         $chunks = array_chunk(
             $this->array,
@@ -56,7 +56,7 @@ class ArrayHelpers
      * @param bool $nest_keys
      * @return array
      */
-    public function arrayFlattenKeys(bool $nest_keys = true): array
+    public function flattenKeys(bool $nest_keys = true): array
     {
         // todo: possible use while loop for multi level nesting?
         $flat = [];
@@ -84,7 +84,7 @@ class ArrayHelpers
      * @param array|string $keys
      * @return array
      */
-    public function arrayRemoveKeys($keys): array
+    public function removeKeys($keys): array
     {
         $all_keys = array_keys($this->array);
         foreach ((array) $keys as $key) {
@@ -102,7 +102,7 @@ class ArrayHelpers
      * @param array $array2
      * @return array
      */
-    public function sumArrays(array $array2): array
+    public function sum(array $array2): array
     {
         // todo: add ability to pass array of arrays
         $array = [];
@@ -118,7 +118,7 @@ class ArrayHelpers
      *
      * @return bool
      */
-    public function arrayValuesUnique(): bool
+    public function valuesUnique(): bool
     {
         try {
             // Count the number of unique array values
@@ -145,7 +145,7 @@ class ArrayHelpers
      * @param mixed $value
      * @return bool
      */
-    public function arrayValuesEqual($value): bool
+    public function valuesEqual($value): bool
     {
         // Check if all array values are equal to a certain value
         return count(array_keys($this->array, $value)) == count($this->array);
@@ -157,9 +157,9 @@ class ArrayHelpers
      * @param mixed $value
      * @return bool
      */
-    public function arrayValuesNotEqual($value): bool
+    public function valuesNotEqual($value): bool
     {
-        return ! $this->arrayValuesEqual($value);
+        return ! $this->valuesEqual($value);
     }
 
     /**
@@ -167,7 +167,7 @@ class ArrayHelpers
      *
      * @return bool
      */
-    public function arrayHasKeys(): bool
+    public function hasKeys(): bool
     {
         // Array doesn't have keys if the array is the same as the array values
         if ($this->array == array_values($this->array)) {
@@ -183,7 +183,7 @@ class ArrayHelpers
      * @param array $except
      * @return array
      */
-    public function array_except(array $except): array
+    public function except(array $except): array
     {
         return array_diff_key($this->array, array_flip((array) $except));
     }
@@ -194,7 +194,7 @@ class ArrayHelpers
      * @param string $key
      * @return mixed
      */
-    public function arrayPop(string $key)
+    public function pop(string $key)
     {
         // Get the value
         $value = $this->array[$key];
@@ -212,7 +212,7 @@ class ArrayHelpers
      * @param array|string $keys
      * @return array
      */
-    public function arrayUnset($keys): array
+    public function unset($keys): array
     {
         // Remove the values from the array
         foreach ((array) $keys as $key) {
@@ -228,9 +228,9 @@ class ArrayHelpers
      *
      * @return bool
      */
-    public function arrayValuesNull(): bool
+    public function valuesNull(): bool
     {
-        return $this->arrayValuesEqual(null);
+        return $this->valuesEqual(null);
     }
 
     /**

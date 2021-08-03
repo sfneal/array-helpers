@@ -73,7 +73,7 @@ class UnsetTest extends TestCase
     public function test_unset(array $array, $key, $expected)
     {
         $this->assertArrayUnset(
-            (new ArrayHelpers($array))->arrayUnset($key),
+            (new ArrayHelpers($array))->unset($key),
             $expected,
             $key
         );
