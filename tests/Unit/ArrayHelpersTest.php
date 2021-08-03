@@ -2,7 +2,8 @@
 
 namespace Sfneal\Helpers\Arrays\Tests\Unit;
 
-use PHPUnit\Framework\TestCase;
+use Sfneal\Helpers\Arrays\ArrayHelpers;
+use Sfneal\Helpers\Arrays\Tests\TestCase;
 
 class ArrayHelpersTest extends TestCase
 {
@@ -34,7 +35,7 @@ class ArrayHelpersTest extends TestCase
             'sebastian/global-state',
         ];
 
-        $randoms = arrayRandom($array, $items);
+        $randoms = (new ArrayHelpers($array))->random($items);
 
         $this->assertNotNull($randoms);
         $this->assertCount($items, $randoms);
