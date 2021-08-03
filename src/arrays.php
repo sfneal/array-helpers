@@ -82,6 +82,18 @@ function arrayValuesEqual(array $array, $value): bool
 }
 
 /**
+ * Determine if all array_values are NOT equal to a certain value.
+ *
+ * @param array $array
+ * @param mixed $value
+ * @return bool
+ */
+function arrayValuesNotEqual(array $array, $value): bool
+{
+    return (new ArrayHelpers($array))->arrayValuesNotEqual($value);
+}
+
+/**
  * Determine if an array is multidimensional and has keys.
  *
  * @param array $array

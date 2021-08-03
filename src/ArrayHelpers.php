@@ -152,6 +152,17 @@ class ArrayHelpers
     }
 
     /**
+     * Determine if all array_values are NOT equal to a certain value.
+     *
+     * @param mixed $value
+     * @return bool
+     */
+    public function arrayValuesNotEqual($value): bool
+    {
+        return ! $this->arrayValuesEqual($value);
+    }
+
+    /**
      * Determine if an array is multidimensional and has keys.
      *
      * @return bool
