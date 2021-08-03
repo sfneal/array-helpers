@@ -89,9 +89,23 @@ class DiffFlatTest extends TestCase
         }
 
         $this->assertEquals($expected, $diff);
-//        foreach ($diff as $d) {
-//            $this->assertArrayHasKey($d, $args[0]);
-//            $this->assertArrayNotHasKey($d, $args[1]);
-//        }
+        foreach ($diff as $d) {
+            $this->assertArrayHasValue($d, $args[0]);
+            $this->assertArrayNotHasValue($d, $args[1]);
+        }
+    }
+
+    public function assertArrayHasValue($needle, array $haystack)
+    {
+        $this->assertTrue(
+            in_array($needle, array_values($haystack)),
+            "Could not find '{$needle}' in the array " . json_encode($haystack));
+    }
+
+    public function assertArrayNotHasValue($needle, array $haystack)
+    {
+        $this->assertFalse(
+            in_array($needle, array_values($haystack)),
+            "Could not find '{$needle}' in the array " . json_encode($haystack));
     }
 }
