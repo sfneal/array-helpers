@@ -52,12 +52,12 @@ class ChunksTest extends TestCase
      * @param array $args
      * @param array $expected
      */
-    public function test_array_chunks(array $args, array $expected)
+    public function test_chunks(array $args, array $expected)
     {
         $this->assertArrayChunks(
             $args,
             $expected,
-            (new ArrayHelpers($args['array']))->arrayChunks($args['min'], $args['max'], $args['no_remainders'])
+            (new ArrayHelpers($args['array']))->chunks($args['min'], $args['max'], $args['no_remainders'])
         );
     }
 
@@ -66,7 +66,7 @@ class ChunksTest extends TestCase
      * @param array $args
      * @param array $expected
      */
-    public function test_array_chunks_helper(array $args, array $expected)
+    public function test_chunks_helper(array $args, array $expected)
     {
         $this->assertArrayChunks(
             $args,

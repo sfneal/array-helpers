@@ -54,29 +54,29 @@ class ValuesEqualTest extends TestCase
     /**
      * @dataProvider arrayValuesEqualProvider
      */
-    public function test_array_values_are_equal(array $array, $value)
+    public function test_values_are_equal(array $array, $value)
     {
         $this->assertValuesAreEqual(
             $array,
-            (new ArrayHelpers($array))->arrayValuesEqual($value)
+            (new ArrayHelpers($array))->valuesEqual($value)
         );
     }
 
     /**
      * @dataProvider arrayValuesNotEqualProvider
      */
-    public function test_array_values_not_equal(array $array, $value)
+    public function test_values_not_equal(array $array, $value)
     {
         $this->assertValuesAreEqual(
             $array,
-            (new ArrayHelpers($array))->arrayValuesNotEqual($value)
+            (new ArrayHelpers($array))->valuesNotEqual($value)
         );
     }
 
     /**
      * @dataProvider arrayValuesEqualProvider
      */
-    public function test_array_values_are_equal_helper(array $array, $value)
+    public function test_values_are_equal_helper(array $array, $value)
     {
         $this->assertValuesAreEqual(
             $array,
@@ -87,7 +87,7 @@ class ValuesEqualTest extends TestCase
     /**
      * @dataProvider arrayValuesNotEqualProvider
      */
-    public function test_array_values_not_equal_helper(array $array, $value)
+    public function test_values_not_equal_helper(array $array, $value)
     {
         $this->assertValuesAreEqual(
             $array,

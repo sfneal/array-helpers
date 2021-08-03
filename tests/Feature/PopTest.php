@@ -47,7 +47,7 @@ class PopTest extends TestCase
     public function test_pop_unset(array $array, $key, $expected)
     {
         $this->assertPopUnset(
-            (new ArrayHelpers($array))->arrayPop($key),
+            (new ArrayHelpers($array))->pop($key),
             $expected
         );
     }
@@ -58,7 +58,7 @@ class PopTest extends TestCase
      * @param $key
      * @param $expected
      */
-    public function test_array_pop_helper(array $array, $key, $expected)
+    public function test_pop_helper(array $array, $key, $expected)
     {
         $this->assertPopUnset(
             arrayPop($array, $key),

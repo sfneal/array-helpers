@@ -34,10 +34,10 @@ class ExceptTest extends TestCase
      * @param array $except
      * @param array $expected
      */
-    public function test_array_except(array $array, array $except, array $expected)
+    public function test_except(array $array, array $except, array $expected)
     {
         $this->assertArrayExcept(
-            (new ArrayHelpers($array))->array_except($except),
+            (new ArrayHelpers($array))->except($except),
             $expected
         );
     }
@@ -48,7 +48,7 @@ class ExceptTest extends TestCase
      * @param array $except
      * @param array $expected
      */
-    public function test_array_except_helper(array $array, array $except, array $expected)
+    public function test_except_helper(array $array, array $except, array $expected)
     {
         $this->assertArrayExcept(
             array_except($array, $except),

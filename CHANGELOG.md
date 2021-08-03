@@ -86,3 +86,7 @@ All notable changes to `array-helpers` will be documented in this file
 - add `ArrayHelpers::diffFlat()` method with the same functionality as the `array_diff_flat()` helper
 - make `DiffFlatTest` for testing `ArrayHelpers::diffFlat()` & `array_diff_flat()` helper function
 - add `ArrayHelpers::arrayValuesNotEqual()` method & `arrayValuesNotEqual()` helper
+
+
+## 2.0.0 - 2021-08-03
+- refactor `ArrayHelpers` to not use the 'array' prefix in method names

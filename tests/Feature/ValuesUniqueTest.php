@@ -7,7 +7,7 @@ use Sfneal\Helpers\Arrays\Tests\TestCase;
 
 class ValuesUniqueTest extends TestCase
 {
-    public function arrayValuesUniqueProvider(): array
+    public function valuesUniqueProvider(): array
     {
         return [
             [
@@ -41,7 +41,7 @@ class ValuesUniqueTest extends TestCase
         ];
     }
 
-    public function arrayValuesNotUniqueProvider(): array
+    public function valuesNotUniqueProvider(): array
     {
         return [
             [
@@ -74,31 +74,31 @@ class ValuesUniqueTest extends TestCase
     }
 
     /**
-     * @dataProvider arrayValuesUniqueProvider
+     * @dataProvider valuesUniqueProvider
      */
-    public function test_array_values_are_unique(array $array)
+    public function test_values_are_unique(array $array)
     {
         $this->assertValuesAreUnique(
             $array,
-            (new ArrayHelpers($array))->arrayValuesUnique()
+            (new ArrayHelpers($array))->valuesUnique()
         );
     }
 
     /**
-     * @dataProvider arrayValuesNotUniqueProvider
+     * @dataProvider valuesNotUniqueProvider
      */
-    public function test_array_values_not_unique(array $array)
+    public function test_values_not_unique(array $array)
     {
         $this->assertValuesNotUnique(
             $array,
-            (new ArrayHelpers($array))->arrayValuesUnique()
+            (new ArrayHelpers($array))->valuesUnique()
         );
     }
 
     /**
-     * @dataProvider arrayValuesUniqueProvider
+     * @dataProvider valuesUniqueProvider
      */
-    public function test_array_values_are_unique_helper(array $array)
+    public function test_values_are_unique_helper(array $array)
     {
         $this->assertValuesAreUnique(
             $array,
@@ -107,9 +107,9 @@ class ValuesUniqueTest extends TestCase
     }
 
     /**
-     * @dataProvider arrayValuesNotUniqueProvider
+     * @dataProvider valuesNotUniqueProvider
      */
-    public function test_array_values_not_unique_helper(array $array)
+    public function test_values_not_unique_helper(array $array)
     {
         $this->assertValuesNotUnique(
             $array,

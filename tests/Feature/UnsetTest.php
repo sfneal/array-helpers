@@ -70,10 +70,10 @@ class UnsetTest extends TestCase
      * @param $key
      * @param $expected
      */
-    public function test_array_unset(array $array, $key, $expected)
+    public function test_unset(array $array, $key, $expected)
     {
         $this->assertArrayUnset(
-            (new ArrayHelpers($array))->arrayUnset($key),
+            (new ArrayHelpers($array))->unset($key),
             $expected,
             $key
         );
@@ -85,7 +85,7 @@ class UnsetTest extends TestCase
      * @param $key
      * @param $expected
      */
-    public function test_array_unset_helper(array $array, $key, $expected)
+    public function test_unset_helper(array $array, $key, $expected)
     {
         $this->assertArrayUnset(
             arrayUnset($array, $key),

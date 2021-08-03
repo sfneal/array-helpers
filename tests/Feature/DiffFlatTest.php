@@ -67,7 +67,7 @@ class DiffFlatTest extends TestCase
      * @param array $args
      * @param array $expected
      */
-    public function test_diff_flat_array_helper(array $args, array $expected)
+    public function test_diff_flat_helper(array $args, array $expected)
     {
         // Set $toArray param
         $args[2] = true;
