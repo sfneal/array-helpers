@@ -7,8 +7,6 @@ use Sfneal\Helpers\Arrays\Tests\TestCase;
 
 class ArrayHelpersTest extends TestCase
 {
-    // todo: refactor to use class
-
     /** @test */
     public function array_diff_flat()
     {

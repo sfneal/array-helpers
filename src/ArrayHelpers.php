@@ -178,12 +178,11 @@ class ArrayHelpers
 
     /**
      * Remove a key from an array & return the key's value.
-     * // todo: refactor to arrayPop.
      *
      * @param string $key
      * @return mixed
      */
-    public function arrayUnset(string $key)
+    public function arrayPop(string $key)
     {
         // Get the value
         $value = $this->array[$key];
@@ -193,6 +192,23 @@ class ArrayHelpers
 
         // Return the value
         return $value;
+    }
+
+    /**
+     * Remove a key from an array & the new array without the key.
+     *
+     * @param array|string $keys
+     * @return array
+     */
+    public function arrayUnset($keys): array
+    {
+        // Remove the values from the array
+        foreach ((array) $keys as $key) {
+            unset($this->array[$key]);
+        }
+
+        // Return the new array
+        return $this->array;
     }
 
     /**
