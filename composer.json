@@ -16,12 +16,13 @@
         }
     ],
     "require": {
-        "php": ">=7.0",
+        "php": ">=7.1",
         "ext-gmp": "*",
         "sfneal/actions": "^2.0"
     },
     "require-dev": {
         "phpunit/phpunit": ">=5.7.0",
+        "orchestra/testbench": ">=3.8",
         "scrutinizer/ocular": "^1.8"
     },
     "autoload": {

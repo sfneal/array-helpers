@@ -103,6 +103,7 @@ class ArrayHelpers
      */
     public function sumArrays(array $array2): array
     {
+        // todo: add ability to pass array of arrays
         $array = [];
         foreach ($this->array as $index => $value) {
             $array[$index] = isset($array2[$index]) ? $array2[$index] + $value : $value;
@@ -118,9 +119,23 @@ class ArrayHelpers
      */
     public function arrayValuesUnique(): bool
     {
-        // Count the number of unique array values
-        // Check to see if there is more than unique array_value
-        return count(array_unique(array_values($this->array))) > 1;
+        try {
+            // Count the number of unique array values
+            // Check to see if there is more than unique array_value
+            return count(array_unique(array_values($this->array))) >= count(array_values($this->array));
+        }
+
+        // Handle nested arrays by comparing number unique keys
+        catch (\ErrorException $exception) {
+            $values = [];
+            $valueCount = 0;
+            foreach (array_values($this->array) as $value) {
+                $values = array_merge($values, $value);
+                $valueCount += count($value);
+            }
+
+            return count($values) == $valueCount;
+        }
     }
 
     /**
@@ -142,6 +157,11 @@ class ArrayHelpers
      */
     public function arrayHasKeys(): bool
     {
+        // Array doesn't have keys if the array is the same as the array values
+        if ($this->array == array_values($this->array)) {
+            return false;
+        }
+
         return count($this->array) == count($this->array, COUNT_RECURSIVE);
     }
 
@@ -158,6 +178,7 @@ class ArrayHelpers
 
     /**
      * Remove a key from an array & return the key's value.
+     * // todo: refactor to arrayPop.
      *
      * @param string $key
      * @return mixed

@@ -58,3 +58,12 @@ All notable changes to `array-helpers` will be documented in this file
 ## 1.3.0 - 2021-07-29
 - cut illuminate/support from composer dev requirements
 - add `random` method to `ArrayHelpers` with helper function for retrieving random array elements
+
+
+## 1.4.0 - 2021-08-02
+- refactor tests into 'Unit' & 'Feature' namespaces
+- optimize test suite by adding more detail tests with data providers for multiple param sets
+- cut support for php7.0
+- fix issue with `ArrayHelpers::arrayValuesUnique()` not properly determining values are not unique
+- fix issue with `ArrayHelpers::arrayValuesUnique()` not being able to handle arrays with nested keys
+- fix issues with `ArrayHelpers::arrayHasKeys()` method not returning false when array was 1d
