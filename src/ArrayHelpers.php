@@ -58,6 +58,7 @@ class ArrayHelpers
      */
     public function arrayFlattenKeys(bool $nest_keys = true): array
     {
+        // todo: possible use while loop for multi level nesting?
         $flat = [];
         foreach (array_keys($this->array) as $key) {
             if (is_array($this->array[$key])) {
