@@ -7,7 +7,7 @@ use Sfneal\Helpers\Arrays\Tests\TestCase;
 
 class ValuesNullTest extends TestCase
 {
-    public function arrayValuesNullProvider(): array
+    public function valuesNullProvider(): array
     {
         return [
             [
@@ -27,7 +27,7 @@ class ValuesNullTest extends TestCase
         ];
     }
 
-    public function arrayValuesNotNullProvider(): array
+    public function valuesNotNullProvider(): array
     {
         return [
             [
@@ -48,9 +48,9 @@ class ValuesNullTest extends TestCase
     }
 
     /**
-     * @dataProvider arrayValuesNullProvider
+     * @dataProvider valuesNullProvider
      */
-    public function test_array_values_are_null(array $array)
+    public function test_values_are_null(array $array)
     {
         $this->assertValuesAreNull(
             $array,
@@ -59,9 +59,9 @@ class ValuesNullTest extends TestCase
     }
 
     /**
-     * @dataProvider arrayValuesNotNullProvider
+     * @dataProvider valuesNotNullProvider
      */
-    public function test_array_values_not_null(array $array)
+    public function test_values_not_null(array $array)
     {
         $this->assertValuesNotNull(
             $array,
@@ -70,9 +70,9 @@ class ValuesNullTest extends TestCase
     }
 
     /**
-     * @dataProvider arrayValuesNullProvider
+     * @dataProvider valuesNullProvider
      */
-    public function test_array_values_are_null_helper(array $array)
+    public function test_values_are_null_helper(array $array)
     {
         $this->assertValuesAreNull(
             $array,
@@ -81,9 +81,9 @@ class ValuesNullTest extends TestCase
     }
 
     /**
-     * @dataProvider arrayValuesNotNullProvider
+     * @dataProvider valuesNotNullProvider
      */
-    public function test_array_values_not_null_helper(array $array)
+    public function test_values_not_null_helper(array $array)
     {
         $this->assertValuesNotNull(
             $array,

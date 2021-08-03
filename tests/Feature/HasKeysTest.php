@@ -74,7 +74,7 @@ class HasKeysTest extends TestCase
     /**
      * @dataProvider arrayHasKeysProvider
      */
-    public function test_array_array_has_keys(array $array)
+    public function test_array_has_keys(array $array)
     {
         $this->assertHasKeys(
             $array,
@@ -85,7 +85,7 @@ class HasKeysTest extends TestCase
     /**
      * @dataProvider arrayDoesntHaveKeysProvider
      */
-    public function test_array_doesnt_have_keys(array $array)
+    public function test_doesnt_have_keys(array $array)
     {
         $this->assertDoesntHaveKeys(
             $array,
@@ -96,7 +96,7 @@ class HasKeysTest extends TestCase
     /**
      * @dataProvider arrayHasKeysProvider
      */
-    public function test_array_array_has_keys_helper(array $array)
+    public function test_array_has_keys_helper(array $array)
     {
         $this->assertHasKeys(
             $array,
@@ -107,7 +107,7 @@ class HasKeysTest extends TestCase
     /**
      * @dataProvider arrayDoesntHaveKeysProvider
      */
-    public function test_array_doesnt_have_keys_helper(array $array)
+    public function test_doesnt_have_keys_helper(array $array)
     {
         $this->assertDoesntHaveKeys(
             $array,
