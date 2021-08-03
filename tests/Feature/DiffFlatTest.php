@@ -24,20 +24,6 @@ class DiffFlatTest extends TestCase
                 ],
                 ['blue'],
             ],
-            //            [
-            //                [
-            //                    ['lime' => 42, 'blue' => 54, 'pink' => 37, 'purple' => 78, 'black' => 88, 'white' => 72],
-            //                    ['green' => 22, 'blue' => 54, 'red' => 36, 'purple' => 78, 'black' => 88, 'white' => 72],
-            //                ],
-            //                ['lime' => 42, 'pink' => 37]
-            //            ],
-            //            [
-            //                [
-            //                    ['Marchand' => 63, 'Bergeron' => 37, 'Pastrnak' => 88, 'Hall' => 71, 'McAvoy' => 73],
-            //                    ['Marchand' => 63, 'Bergeron' => 37, 'McAvoy' => 73, 'Carlo' => 25]
-            //                ],
-            //                ['Pastrnak' => 88, 'Hall' => 71, 'Carlo' => 25]
-            //            ],
         ];
     }
 
