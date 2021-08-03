@@ -80,3 +80,8 @@ All notable changes to `array-helpers` will be documented in this file
 
 ## 1.5.1 - 2021-08-03
 - optimize `arrayChunks()` helper & `ArrayHelpers::arrayChunks()` methods parameter type hinting
+
+ 
+## 1.6.0 - 2021-08-03
+- add `ArrayHelpers::diffFlat()` method with the same functionality as the `array_diff_flat()` helper
+- make `DiffFlatTest` for testing `ArrayHelpers::diffFlat()` & `array_diff_flat()` helper function
