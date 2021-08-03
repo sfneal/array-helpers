@@ -197,13 +197,15 @@ class ArrayHelpers
     /**
      * Remove a key from an array & the new array without the key.
      *
-     * @param string $key
+     * @param array|string $keys
      * @return array
      */
-    public function arrayUnset(string $key): array
+    public function arrayUnset($keys): array
     {
-        // Remove the value from the array
-        unset($this->array[$key]);
+        // Remove the values from the array
+        foreach ((array) $keys as $key) {
+            unset($this->array[$key]);
+        }
 
         // Return the new array
         return $this->array;

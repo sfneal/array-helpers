@@ -138,12 +138,12 @@ function arrayPop(array $array, string $key)
  * Remove a key from an array & the new array without the key.
  *
  * @param array $array
- * @param string $key
+ * @param array|string $keys
  * @return array
  */
-function arrayUnset(array $array, string $key): array
+function arrayUnset(array $array, $keys): array
 {
-    return (new ArrayHelpers($array))->arrayUnset($key);
+    return (new ArrayHelpers($array))->arrayUnset($keys);
 }
 
 /**

@@ -35,6 +35,32 @@ class UnsetTest extends TestCase
                 'blue',
                 ['red' => 'Detroit', 'green' => 'Dallas', 'purple' => 'Los Angeles'],
             ],
+
+            [
+                ['red' => 22, 'green' => 44, 'blue' => 23, 'purple' => 23],
+                ['green', 'purple'],
+                ['red' => 22, 'blue' => 23],
+            ],
+            [
+                ['red' => 22, 'green' => 44, 'blue' => 23, 'purple' => 23],
+                ['blue', 'red'],
+                ['green' => 44, 'purple' => 23],
+            ],
+            [
+                ['red' => 36, 'black' => 88, 'white' => 72, 'blue' => 4],
+                ['black', 'white'],
+                ['red' => 36, 'blue' => 4],
+            ],
+            [
+                ['red' => 'Detroit', 'green' => 'Dallas', 'blue' => 'Vancouver', 'purple' => 'Los Angeles'],
+                ['red', 'purple'],
+                ['green' => 'Dallas', 'blue' => 'Vancouver'],
+            ],
+            [
+                ['red' => 'Detroit', 'green' => 'Dallas', 'blue' => 'Vancouver', 'purple' => 'Los Angeles'],
+                ['blue', 'green'],
+                ['red' => 'Detroit', 'purple' => 'Los Angeles'],
+            ],
         ];
     }
 
@@ -68,11 +94,13 @@ class UnsetTest extends TestCase
         );
     }
 
-    public function assertArrayUnset($actual, $expected, $key)
+    public function assertArrayUnset($actual, $expected, $keys)
     {
         $this->assertNotNull($actual);
         $this->assertIsArray($actual);
-        $this->assertArrayNotHasKey($key, $actual);
+        foreach ((array) $keys as $key) {
+            $this->assertArrayNotHasKey($key, $actual);
+        }
         $this->assertEquals($expected, $actual);
     }
 }
