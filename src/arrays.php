@@ -135,6 +135,18 @@ function arrayPop(array $array, string $key)
 }
 
 /**
+ * Remove a key from an array & the new array without the key.
+ *
+ * @param array $array
+ * @param string $key
+ * @return array
+ */
+function arrayUnset(array $array, string $key): array
+{
+    return (new ArrayHelpers($array))->arrayUnset($key);
+}
+
+/**
  * Determine if all values in an array are null.
  *
  * @param array $array
