@@ -30,7 +30,7 @@ class ArrayHelpers
      * @param bool $preserve_keys
      * @return array
      */
-    public function arrayChunks($min = 0, $max = null, $no_remainders = false, $preserve_keys = true): array
+    public function arrayChunks(int $min = 0, int $max = null, bool $no_remainders = false, bool $preserve_keys = true): array
     {
         $chunks = array_chunk(
             $this->array,
@@ -56,7 +56,7 @@ class ArrayHelpers
      * @param bool $nest_keys
      * @return array
      */
-    public function arrayFlattenKeys($nest_keys = true): array
+    public function arrayFlattenKeys(bool $nest_keys = true): array
     {
         $flat = [];
         foreach (array_keys($this->array) as $key) {
