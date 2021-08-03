@@ -21,6 +21,7 @@
         "sfneal/actions": "^2.0"
     },
     "require-dev": {
+        "ext-json": "*",
         "phpunit/phpunit": ">=5.7.0",
         "orchestra/testbench": ">=3.8",
         "scrutinizer/ocular": "^1.8"

@@ -67,9 +67,9 @@ class ValuesEqualTest extends TestCase
      */
     public function test_array_values_not_equal(array $array, $value)
     {
-        $this->assertValuesNotEqual(
+        $this->assertValuesAreEqual(
             $array,
-            (new ArrayHelpers($array))->arrayValuesEqual($value)
+            (new ArrayHelpers($array))->arrayValuesNotEqual($value)
         );
     }
 
@@ -89,9 +89,9 @@ class ValuesEqualTest extends TestCase
      */
     public function test_array_values_not_equal_helper(array $array, $value)
     {
-        $this->assertValuesNotEqual(
+        $this->assertValuesAreEqual(
             $array,
-            arrayValuesEqual($array, $value)
+            arrayValuesNotEqual($array, $value)
         );
     }
 
@@ -99,11 +99,5 @@ class ValuesEqualTest extends TestCase
     {
         $this->assertIsBool($equal);
         $this->assertTrue($equal);
-    }
-
-    public function assertValuesNotEqual(array $array, $equal)
-    {
-        $this->assertIsBool($equal);
-        $this->assertFalse($equal);
     }
 }
