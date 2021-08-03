@@ -30,7 +30,7 @@ class ArrayHelpers
      * @param bool $preserve_keys
      * @return array
      */
-    public function arrayChunks($min = 0, $max = null, $no_remainders = false, $preserve_keys = true): array
+    public function arrayChunks(int $min = 0, int $max = null, bool $no_remainders = false, bool $preserve_keys = true): array
     {
         $chunks = array_chunk(
             $this->array,
@@ -56,8 +56,9 @@ class ArrayHelpers
      * @param bool $nest_keys
      * @return array
      */
-    public function arrayFlattenKeys($nest_keys = true): array
+    public function arrayFlattenKeys(bool $nest_keys = true): array
     {
+        // todo: possible use while loop for multi level nesting?
         $flat = [];
         foreach (array_keys($this->array) as $key) {
             if (is_array($this->array[$key])) {
@@ -229,10 +230,16 @@ class ArrayHelpers
      */
     public function random(int $items): array
     {
+        // Get a random array of keys
         $keys = array_rand($this->array, $items);
 
-        return array_filter($this->array, function ($value, $key) use ($keys) {
-            return in_array($key, $keys);
-        }, ARRAY_FILTER_USE_BOTH);
+        // Return array with only the randomly selected keys
+        return array_filter(
+            $this->array,
+            function ($value, $key) use ($keys) {
+                return in_array($key, $keys);
+            },
+            ARRAY_FILTER_USE_BOTH
+        );
     }
 }

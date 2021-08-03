@@ -13,7 +13,11 @@ use Sfneal\Helpers\Arrays\ChunkSizer;
  * @param bool $preserve_keys
  * @return array
  */
-function arrayChunks(array $array, $min = 0, $max = null, $no_remainders = false, $preserve_keys = true): array
+function arrayChunks(array $array,
+                     int $min = 0,
+                     int $max = null,
+                     bool $no_remainders = false,
+                     bool $preserve_keys = true): array
 {
     return (new ArrayHelpers($array))->arrayChunks($min, $max, $no_remainders, $preserve_keys);
 }
@@ -25,7 +29,7 @@ function arrayChunks(array $array, $min = 0, $max = null, $no_remainders = false
  * @param bool $nest_keys
  * @return array
  */
-function arrayFlattenKeys(array $array, $nest_keys = true): array
+function arrayFlattenKeys(array $array, bool $nest_keys = true): array
 {
     return (new ArrayHelpers($array))->arrayFlattenKeys($nest_keys);
 }
@@ -176,7 +180,7 @@ if (! function_exists('arrayRandom')) {
  */
 if (function_exists('collect')) {
     /**
-     * Return a flat array of values found in the $first array that are not found in the $second.
+     * Return a flat array of values that were found in the $first array that are not found in the $second.
      *
      * @param array $first
      * @param array $second
