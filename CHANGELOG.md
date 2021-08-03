@@ -67,3 +67,7 @@ All notable changes to `array-helpers` will be documented in this file
 - fix issue with `ArrayHelpers::arrayValuesUnique()` not properly determining values are not unique
 - fix issue with `ArrayHelpers::arrayValuesUnique()` not being able to handle arrays with nested keys
 - fix issues with `ArrayHelpers::arrayHasKeys()` method not returning false when array was 1d
+
+
+## 1.4.1 - 2021-08-03
+- optimize `ChunkSizerTest` to use dataProviders
