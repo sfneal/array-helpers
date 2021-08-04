@@ -202,6 +202,7 @@ if (function_exists('collect')) {
     function array_diff_flat(array $first, array $second, bool $toArray = true)
     {
         $diff = ArrayHelpers::from($first)->diffFlat($second);
+
         return $toArray ? $diff->get() : $diff->collect();
     }
 }
