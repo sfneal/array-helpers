@@ -44,6 +44,7 @@ class SumTest extends TestCase
             $array[] = $this->randomArray(4, 5);
             $array[] = $this->randomArray(7, 9);
         }
+
         return $array;
     }
 
