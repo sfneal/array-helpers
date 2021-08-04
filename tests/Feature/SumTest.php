@@ -10,14 +10,24 @@ class SumTest extends TestCase
     // todo: add ability to pass more arrays
     public function sumArrayProvider(): array
     {
-        $randArrays = function () {
-            $a = [rand(0, 1000), rand(0, 1000), rand(0, 1000)];
-            $b = [rand(0, 1000), rand(0, 1000), rand(0, 1000)];
+        $randArrays = function (int $numberOfArrays = 2, int $arrayDepth = 4) {
+            $array = [];
+            $expected = [];
 
-            return [
-                [$a, $b],
-                [$a[0] + $b[0], $a[1] + $b[1], $a[2] + $b[2]],
-            ];
+            foreach (range(0, $numberOfArrays) as $index) {
+                $set = [];
+                foreach (range(0, $arrayDepth) as $i) {
+                    $set[$i] = rand(0, 1000);
+
+                    if (! array_key_exists($i, $expected)) {
+                        $expected[$i] = 0;
+                    }
+                    $expected[$i] += $set[$i];
+                }
+                $array[$index] = $set;
+            }
+
+            return [$array, $expected];
         };
 
         return [
