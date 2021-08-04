@@ -4,8 +4,6 @@ namespace Sfneal\Helpers\Arrays\Tests;
 
 class TestCase extends \Orchestra\Testbench\TestCase
 {
-    // todo: refactor to sfneal/mock-models
-
     /**
      * Assert that an array has a value.
      *
