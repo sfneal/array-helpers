@@ -2,6 +2,8 @@
 
 namespace Sfneal\Helpers\Arrays;
 
+use Sfneal\Helpers\Arrays\Utils\ChunkSizer;
+
 class ArrayHelpers
 {
     /**

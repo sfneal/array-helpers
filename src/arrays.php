@@ -1,7 +1,7 @@
 <?php
 
 use Sfneal\Helpers\Arrays\ArrayHelpers;
-use Sfneal\Helpers\Arrays\ChunkSizer;
+use Sfneal\Helpers\Arrays\Utils\ChunkSizer;
 
 /**
  * Returns a chunked array with calculated chunk size.
