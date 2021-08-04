@@ -7,26 +7,45 @@ use Sfneal\Helpers\Arrays\Tests\TestCase;
 
 class SumTest extends TestCase
 {
-    // todo: add ability to pass more arrays
+    /**
+     * Generate a random test array.
+     *
+     * @param int $numberOfArrays
+     * @param int $arrayDepth
+     * @return array[]
+     */
+    private function randomArray(int $numberOfArrays = 2, int $arrayDepth = 4): array
+    {
+        $array = [];
+        $expected = [];
+
+        foreach (range(0, $numberOfArrays) as $index) {
+            $set = [];
+            foreach (range(0, $arrayDepth) as $i) {
+                $set[$i] = rand(0, 1000);
+
+                if (! array_key_exists($i, $expected)) {
+                    $expected[$i] = 0;
+                }
+                $expected[$i] += $set[$i];
+            }
+            $array[$index] = $set;
+        }
+
+        return [$array, $expected];
+    }
+
     public function sumArrayProvider(): array
     {
-        $randArrays = function () {
-            $a = [rand(0, 1000), rand(0, 1000), rand(0, 1000)];
-            $b = [rand(0, 1000), rand(0, 1000), rand(0, 1000)];
+        $array = [];
+        foreach (range(0, 5) as $index) {
+            $array[] = $this->randomArray(2, 4);
+            $array[] = $this->randomArray(3, 5);
+            $array[] = $this->randomArray(4, 5);
+            $array[] = $this->randomArray(7, 9);
+        }
 
-            return [
-                [$a, $b],
-                [$a[0] + $b[0], $a[1] + $b[1], $a[2] + $b[2]],
-            ];
-        };
-
-        return [
-            $randArrays(),
-            $randArrays(),
-            $randArrays(),
-            $randArrays(),
-            $randArrays(),
-        ];
+        return $array;
     }
 
     /**
@@ -37,7 +56,7 @@ class SumTest extends TestCase
     public function test_sum_arrays(array $array, array $expected)
     {
         $this->assertSumArrays(
-            ArrayHelpers::sum($array[0], $array[1]),
+            ArrayHelpers::sum(...$array),
             $expected
         );
     }
@@ -50,7 +69,7 @@ class SumTest extends TestCase
     public function test_sum_arrays_helper(array $array, array $expected)
     {
         $this->assertSumArrays(
-            sumArrays($array[0], $array[1]),
+            sumArrays(...$array),
             $expected
         );
     }

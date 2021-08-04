@@ -95,3 +95,7 @@ All notable changes to `array-helpers` will be documented in this file
 ## 3.0.0 - 2021-08-04
 - refactor `ArrayUtility` methods that returned an array to return `self` to support method stacking
 - refactor `ArrayHelpers` to serve as a static constructor for the `ArrayUtility` class
+
+
+## 3.1.0 - 2021-08-04
+- optimize `ArrayHelpers::sum()` method & `arraySum()` helper to accept variadic array params
