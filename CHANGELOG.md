@@ -90,3 +90,8 @@ All notable changes to `array-helpers` will be documented in this file
 
 ## 2.0.0 - 2021-08-03
 - refactor `ArrayHelpers` to not use the 'array' prefix in method names
+ 
+ 
+## 3.0.0 - 2021-08-04
+- refactor `ArrayUtility` methods that returned an array to return `self` to support method stacking
+- refactor `ArrayHelpers` to serve as a static constructor for the `ArrayUtility` class
