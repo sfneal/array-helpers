@@ -35,16 +35,16 @@ class SumTest extends TestCase
         return [$array, $expected];
     }
 
-    // todo: add ability to pass more arrays
     public function sumArrayProvider(): array
     {
-        return [
-            $this->randomArray(),
-            $this->randomArray(),
-            $this->randomArray(),
-            $this->randomArray(),
-            $this->randomArray(),
-        ];
+        $array = [];
+        foreach (range(0, 5) as $index) {
+            $array[] = $this->randomArray(2, 4);
+            $array[] = $this->randomArray(3, 5);
+            $array[] = $this->randomArray(4, 5);
+            $array[] = $this->randomArray(7, 9);
+        }
+        return $array;
     }
 
     /**
