@@ -80,7 +80,7 @@ class ValuesUniqueTest extends TestCase
     {
         $this->assertValuesAreUnique(
             $array,
-            (new ArrayHelpers($array))->valuesUnique()
+            ArrayHelpers::from($array)->valuesUnique()
         );
     }
 
@@ -91,7 +91,7 @@ class ValuesUniqueTest extends TestCase
     {
         $this->assertValuesNotUnique(
             $array,
-            (new ArrayHelpers($array))->valuesUnique()
+            ArrayHelpers::from($array)->valuesUnique()
         );
     }
 

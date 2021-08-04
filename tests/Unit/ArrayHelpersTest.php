@@ -20,7 +20,7 @@ class ArrayHelpersTest extends TestCase
             'sebastian/global-state',
         ];
 
-        $randoms = (new ArrayHelpers($array))->random($items);
+        $randoms = ArrayHelpers::from($array)->random($items);
 
         $this->assertNotNull($randoms);
         $this->assertCount($items, $randoms);

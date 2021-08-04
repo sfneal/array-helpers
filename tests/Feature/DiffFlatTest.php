@@ -40,7 +40,7 @@ class DiffFlatTest extends TestCase
 
         $this->assertDiffFlat(
             $args,
-            (new ArrayHelpers($args[0]))->diffFlat($args[1], $args[2]),
+            ArrayHelpers::from($args[0])->diffFlat($args[1], $args[2]),
             $expected
         );
     }
@@ -57,7 +57,7 @@ class DiffFlatTest extends TestCase
 
         $this->assertDiffFlat(
             $args,
-            (new ArrayHelpers($args[0]))->diffFlat($args[1], $args[2]),
+            ArrayHelpers::from($args[0])->diffFlat($args[1], $args[2]),
             $expected
         );
     }
