@@ -37,7 +37,7 @@ class SumTest extends TestCase
     public function test_sum_arrays(array $array, array $expected)
     {
         $this->assertSumArrays(
-            ArrayHelpers::sum($array[0], $array[1]),
+            ArrayHelpers::sum(...$array),
             $expected
         );
     }
@@ -50,7 +50,7 @@ class SumTest extends TestCase
     public function test_sum_arrays_helper(array $array, array $expected)
     {
         $this->assertSumArrays(
-            sumArrays($array[0], $array[1]),
+            sumArrays(...$array),
             $expected
         );
     }
