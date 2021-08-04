@@ -37,7 +37,7 @@ class ExceptTest extends TestCase
     public function test_except(array $array, array $except, array $expected)
     {
         $this->assertArrayExcept(
-            ArrayHelpers::from($array)->except($except),
+            ArrayHelpers::from($array)->except($except)->get(),
             $expected
         );
     }

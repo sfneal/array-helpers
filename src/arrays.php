@@ -19,7 +19,7 @@ function arrayChunks(array $array,
                      bool $no_remainders = false,
                      bool $preserve_keys = true): array
 {
-    return ArrayHelpers::from($array)->chunks($min, $max, $no_remainders, $preserve_keys);
+    return ArrayHelpers::from($array)->chunks($min, $max, $no_remainders, $preserve_keys)->get();
 }
 
 /**
@@ -31,7 +31,7 @@ function arrayChunks(array $array,
  */
 function arrayFlattenKeys(array $array, bool $nest_keys = true): array
 {
-    return ArrayHelpers::from($array)->flattenKeys($nest_keys);
+    return ArrayHelpers::from($array)->flattenKeys($nest_keys)->get();
 }
 
 /**
@@ -43,7 +43,7 @@ function arrayFlattenKeys(array $array, bool $nest_keys = true): array
  */
 function arrayRemoveKeys(array $array, $keys): array
 {
-    return ArrayHelpers::from($array)->removeKeys($keys);
+    return ArrayHelpers::from($array)->removeKeys($keys)->get();
 }
 
 /**
@@ -114,7 +114,7 @@ if (! function_exists('array_except')) {
      */
     function array_except(array $original, array $except): array
     {
-        return ArrayHelpers::from($original)->except($except);
+        return ArrayHelpers::from($original)->except($except)->get();
     }
 }
 
@@ -159,7 +159,7 @@ function arrayPop(array $array, string $key)
  */
 function arrayUnset(array $array, $keys): array
 {
-    return ArrayHelpers::from($array)->unset($keys);
+    return ArrayHelpers::from($array)->unset($keys)->get();
 }
 
 /**
@@ -183,7 +183,7 @@ if (! function_exists('arrayRandom')) {
      */
     function arrayRandom(array $array, int $items): array
     {
-        return ArrayHelpers::from($array)->random($items);
+        return ArrayHelpers::from($array)->random($items)->get();
     }
 }
 
@@ -201,6 +201,7 @@ if (function_exists('collect')) {
      */
     function array_diff_flat(array $first, array $second, bool $toArray = true)
     {
-        return ArrayHelpers::from($first)->diffFlat($second, $toArray);
+        $diff = ArrayHelpers::from($first)->diffFlat($second);
+        return $toArray ? $diff->get() : $diff->collect();
     }
 }

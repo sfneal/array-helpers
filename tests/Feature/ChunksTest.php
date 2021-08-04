@@ -57,7 +57,7 @@ class ChunksTest extends TestCase
         $this->assertArrayChunks(
             $args,
             $expected,
-            ArrayHelpers::from($args['array'])->chunks($args['min'], $args['max'], $args['no_remainders'])
+            ArrayHelpers::from($args['array'])->chunks($args['min'], $args['max'], $args['no_remainders'])->get()
         );
     }
 

@@ -35,12 +35,9 @@ class DiffFlatTest extends TestCase
      */
     public function test_diff_flat_array(array $args, array $expected)
     {
-        // Set $toArray param
-        $args[2] = true;
-
         $this->assertDiffFlat(
             $args,
-            ArrayHelpers::from($args[0])->diffFlat($args[1], $args[2]),
+            ArrayHelpers::from($args[0])->diffFlat($args[1])->get(),
             $expected
         );
     }
@@ -57,7 +54,7 @@ class DiffFlatTest extends TestCase
 
         $this->assertDiffFlat(
             $args,
-            ArrayHelpers::from($args[0])->diffFlat($args[1], $args[2]),
+            ArrayHelpers::from($args[0])->diffFlat($args[1])->collect(),
             $expected
         );
     }
@@ -98,13 +95,8 @@ class DiffFlatTest extends TestCase
 
     public function assertDiffFlat(array $args, $diff, array $expected)
     {
-        // Expect array
-        if ($args[2]) {
-            $this->assertIsArray($diff);
-        }
-
         // Expect collection
-        else {
+        if (! is_array($diff)) {
             $this->assertInstanceOf(Collection::class, $diff);
             $expected = collect($expected);
         }
