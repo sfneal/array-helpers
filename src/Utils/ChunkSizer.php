@@ -1,6 +1,6 @@
 <?php
 
-namespace Sfneal\Helpers\Arrays;
+namespace Sfneal\Helpers\Arrays\Utils;
 
 use Sfneal\Actions\Action;
 

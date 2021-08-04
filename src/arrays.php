@@ -1,7 +1,7 @@
 <?php
 
 use Sfneal\Helpers\Arrays\ArrayHelpers;
-use Sfneal\Helpers\Arrays\ChunkSizer;
+use Sfneal\Helpers\Arrays\Utils\ChunkSizer;
 
 /**
  * Returns a chunked array with calculated chunk size.
@@ -19,7 +19,7 @@ function arrayChunks(array $array,
                      bool $no_remainders = false,
                      bool $preserve_keys = true): array
 {
-    return (new ArrayHelpers($array))->chunks($min, $max, $no_remainders, $preserve_keys);
+    return ArrayHelpers::from($array)->chunks($min, $max, $no_remainders, $preserve_keys)->get();
 }
 
 /**
@@ -31,7 +31,7 @@ function arrayChunks(array $array,
  */
 function arrayFlattenKeys(array $array, bool $nest_keys = true): array
 {
-    return (new ArrayHelpers($array))->flattenKeys($nest_keys);
+    return ArrayHelpers::from($array)->flattenKeys($nest_keys)->get();
 }
 
 /**
@@ -43,7 +43,7 @@ function arrayFlattenKeys(array $array, bool $nest_keys = true): array
  */
 function arrayRemoveKeys(array $array, $keys): array
 {
-    return (new ArrayHelpers($array))->removeKeys($keys);
+    return ArrayHelpers::from($array)->removeKeys($keys)->get();
 }
 
 /**
@@ -55,7 +55,7 @@ function arrayRemoveKeys(array $array, $keys): array
  */
 function sumArrays(array $array1, array $array2): array
 {
-    return (new ArrayHelpers($array1))->sum($array2);
+    return ArrayHelpers::sum($array1, $array2);
 }
 
 /**
@@ -66,7 +66,7 @@ function sumArrays(array $array1, array $array2): array
  */
 function arrayValuesUnique(array $array): bool
 {
-    return (new ArrayHelpers($array))->valuesUnique();
+    return ArrayHelpers::from($array)->valuesUnique();
 }
 
 /**
@@ -78,7 +78,7 @@ function arrayValuesUnique(array $array): bool
  */
 function arrayValuesEqual(array $array, $value): bool
 {
-    return (new ArrayHelpers($array))->valuesEqual($value);
+    return ArrayHelpers::from($array)->valuesEqual($value);
 }
 
 /**
@@ -90,7 +90,7 @@ function arrayValuesEqual(array $array, $value): bool
  */
 function arrayValuesNotEqual(array $array, $value): bool
 {
-    return (new ArrayHelpers($array))->valuesNotEqual($value);
+    return ArrayHelpers::from($array)->valuesNotEqual($value);
 }
 
 /**
@@ -101,7 +101,7 @@ function arrayValuesNotEqual(array $array, $value): bool
  */
 function arrayHasKeys(array $array): bool
 {
-    return (new ArrayHelpers($array))->hasKeys();
+    return ArrayHelpers::from($array)->hasKeys();
 }
 
 if (! function_exists('array_except')) {
@@ -114,7 +114,7 @@ if (! function_exists('array_except')) {
      */
     function array_except(array $original, array $except): array
     {
-        return (new ArrayHelpers($original))->except($except);
+        return ArrayHelpers::from($original)->except($except)->get();
     }
 }
 
@@ -147,7 +147,7 @@ function chunkSizer(int $array_size, int $min = 0, int $max = null, int $divisor
  */
 function arrayPop(array $array, string $key)
 {
-    return (new ArrayHelpers($array))->pop($key);
+    return ArrayHelpers::from($array)->pop($key);
 }
 
 /**
@@ -159,7 +159,7 @@ function arrayPop(array $array, string $key)
  */
 function arrayUnset(array $array, $keys): array
 {
-    return (new ArrayHelpers($array))->unset($keys);
+    return ArrayHelpers::from($array)->unset($keys)->get();
 }
 
 /**
@@ -170,7 +170,7 @@ function arrayUnset(array $array, $keys): array
  */
 function arrayValuesNull(array $array): bool
 {
-    return (new ArrayHelpers($array))->valuesNull();
+    return ArrayHelpers::from($array)->valuesNull();
 }
 
 if (! function_exists('arrayRandom')) {
@@ -183,7 +183,7 @@ if (! function_exists('arrayRandom')) {
      */
     function arrayRandom(array $array, int $items): array
     {
-        return (new ArrayHelpers($array))->random($items);
+        return ArrayHelpers::from($array)->random($items)->get();
     }
 }
 
@@ -201,6 +201,8 @@ if (function_exists('collect')) {
      */
     function array_diff_flat(array $first, array $second, bool $toArray = true)
     {
-        return (new ArrayHelpers($first))->diffFlat($second, $toArray);
+        $diff = ArrayHelpers::from($first)->diffFlat($second);
+
+        return $toArray ? $diff->get() : $diff->collect();
     }
 }

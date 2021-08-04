@@ -2,8 +2,8 @@
 
 namespace Sfneal\Helpers\Arrays\Tests\Unit;
 
-use Sfneal\Helpers\Arrays\ChunkSizer;
 use Sfneal\Helpers\Arrays\Tests\TestCase;
+use Sfneal\Helpers\Arrays\Utils\ChunkSizer;
 
 class ChunkSizerTest extends TestCase
 {
