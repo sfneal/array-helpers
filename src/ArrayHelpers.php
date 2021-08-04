@@ -20,18 +20,26 @@ class ArrayHelpers
     /**
      * Sum the values of two arrays.
      *
-     * @param array $array1
-     * @param array $array2
+     * @param array $arrays
      * @return array
      */
-    public static function sum(array $array1, array $array2): array
+    public static function sum(...$arrays): array
     {
-        // todo: add ability to pass array of arrays
-        $array = [];
-        foreach ($array1 as $index => $value) {
-            $array[$index] = isset($array2[$index]) ? $array2[$index] + $value : $value;
+        $sum = [];
+
+        foreach ($arrays as $array)
+        {
+            foreach ($array as $index => $value) {
+                if (! array_key_exists($index, $sum)) {
+                    $sum[$index] = $value;
+                }
+
+                else {
+                    $sum[$index] += $value;
+                }
+            }
         }
 
-        return $array;
+        return $sum;
     }
 }

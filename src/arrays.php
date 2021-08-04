@@ -49,13 +49,12 @@ function arrayRemoveKeys(array $array, $keys): array
 /**
  * Sum the values of two arrays.
  *
- * @param array $array1
- * @param array $array2
+ * @param array $arrays
  * @return array
  */
-function sumArrays(array $array1, array $array2): array
+function sumArrays(...$arrays): array
 {
-    return ArrayHelpers::sum($array1, $array2);
+    return ArrayHelpers::sum(...$arrays);
 }
 
 /**
