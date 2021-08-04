@@ -27,14 +27,11 @@ class ArrayHelpers
     {
         $sum = [];
 
-        foreach ($arrays as $array)
-        {
+        foreach ($arrays as $array) {
             foreach ($array as $index => $value) {
                 if (! array_key_exists($index, $sum)) {
                     $sum[$index] = $value;
-                }
-
-                else {
+                } else {
                     $sum[$index] += $value;
                 }
             }
