@@ -141,6 +141,19 @@ class ArrayUtility
     }
 
     /**
+     * Retrieve an array with only the keys provided in the $only param.
+     *
+     * @param array $only
+     * @return self
+     */
+    public function only(array $only): self
+    {
+        return $this->set(array_filter($this->array, function($key) use ($only) {
+            return in_array($key, $only);
+        }, ARRAY_FILTER_USE_KEY));
+    }
+
+    /**
      * Remove a key from an array & return the key's value.
      *
      * @param string $key
