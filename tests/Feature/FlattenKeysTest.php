@@ -234,7 +234,7 @@ class FlattenKeysTest extends TestCase
      */
     private function getExpectedNotNested(array $expected): array
     {
-        return collect($expected)->mapWithKeys(function($value, $key) {
+        return collect($expected)->mapWithKeys(function ($value, $key) {
             return [substr($key, strpos($key, '_') + 1) => $value];
         })->toArray();
     }
