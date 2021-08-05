@@ -130,7 +130,7 @@ class ArrayUtility
     }
 
     /**
-     * Remove specific arrays of keys without modifying the original array.
+     * Remove specific arrays of keys.
      *
      * @param array $except
      * @return self
