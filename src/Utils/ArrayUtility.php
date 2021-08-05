@@ -155,6 +155,17 @@ class ArrayUtility
     }
 
     /**
+     * Merge arrays into the existing array.
+     *
+     * @param ...$arrays
+     * @return $this
+     */
+    public function merge(...$arrays): self
+    {
+        return $this->set(array_merge($this->array, ...$arrays));
+    }
+
+    /**
      * Remove a key from an array & return the key's value.
      *
      * @param string $key

@@ -109,3 +109,8 @@ All notable changes to `array-helpers` will be documented in this file
 - fix issues with `ArrayUtility::except()` method altering the original array
 - add test method to `ArrayHelpersUnitTest` that uses method stacking to test multiple methods
 - add $separator param to `ArrayUtility::flattenKeys()` method
+
+
+## 3.3.0 - 2021-08-05
+- add `merge()` method to `ArrayUtility` for merging existing arrays
+- add `fromMerge()` method to `ArrayHelpers` for creating merged arrays
