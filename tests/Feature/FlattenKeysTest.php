@@ -8,6 +8,7 @@ use Sfneal\Helpers\Arrays\Tests\TestCase;
 class FlattenKeysTest extends TestCase
 {
     // todo: add data providers with more levels of nesting
+    // todo: add providers without nest_keys param
     public function flattenKeysProvider(): array
     {
         return [
@@ -143,8 +144,22 @@ class FlattenKeysTest extends TestCase
     {
         $this->assertFlattenKeys(
             $args,
+            $this->getExpectedNotNested($expected),
+            ArrayHelpers::from($args['array'])->flattenKeys(false)->get()
+        );
+    }
+
+    /**
+     * @dataProvider flattenKeysProvider
+     * @param array $args
+     * @param array $expected
+     */
+    public function test_flatten_keys_nested(array $args, array $expected)
+    {
+        $this->assertFlattenKeys(
+            $args,
             $expected,
-            ArrayHelpers::from($args['array'])->flattenKeys($args['nest_keys'])->get()
+            ArrayHelpers::from($args['array'])->flattenKeys(true)->get()
         );
     }
 
@@ -157,8 +172,22 @@ class FlattenKeysTest extends TestCase
     {
         $this->assertFlattenKeys(
             $args,
+            $this->getExpectedNotNested($expected),
+            arrayFlattenKeys($args['array'], false)
+        );
+    }
+
+    /**
+     * @dataProvider flattenKeysProvider
+     * @param array $args
+     * @param array $expected
+     */
+    public function test_flatten_keys_helper_nested(array $args, array $expected)
+    {
+        $this->assertFlattenKeys(
+            $args,
             $expected,
-            arrayFlattenKeys($args['array'], $args['nest_keys'])
+            arrayFlattenKeys($args['array'], true)
         );
     }
 
@@ -172,5 +201,18 @@ class FlattenKeysTest extends TestCase
                 $this->assertTrue(in_array($value, array_values($flat)));
             }
         }
+    }
+
+    /**
+     * Remove the "{$index}_" prefix from expected keys.
+     *
+     * @param array $expected
+     * @return array
+     */
+    private function getExpectedNotNested(array $expected): array
+    {
+        return collect($expected)->mapWithKeys(function($value, $key) {
+            return [substr($key, 2) => $value];
+        })->toArray();
     }
 }
