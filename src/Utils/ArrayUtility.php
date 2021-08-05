@@ -87,9 +87,10 @@ class ArrayUtility
      * Flatten a multidimensional array into a 2D array without nested keys.
      *
      * @param bool $nest_keys
+     * @param string $separator
      * @return self
      */
-    public function flattenKeys(bool $nest_keys = true): self
+    public function flattenKeys(bool $nest_keys = true, string $separator = '_'): self
     {
         // todo: possible use while loop for multi level nesting?
         $flat = [];
@@ -98,7 +99,7 @@ class ArrayUtility
                 // If the key is an array, add each children keys to flattened array
                 foreach ($this->array[$key] as $k => $v) {
                     if ($nest_keys) {
-                        $flat[$key.'_'.$k] = $v;
+                        $flat[$key.$separator.$k] = $v;
                     } else {
                         $flat[$k] = $v;
                     }

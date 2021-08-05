@@ -27,11 +27,12 @@ function arrayChunks(array $array,
  *
  * @param array $array
  * @param bool $nest_keys
+ * @param string $separator
  * @return array
  */
-function arrayFlattenKeys(array $array, bool $nest_keys = true): array
+function arrayFlattenKeys(array $array, bool $nest_keys = true, string $separator = '_'): array
 {
-    return ArrayHelpers::from($array)->flattenKeys($nest_keys)->get();
+    return ArrayHelpers::from($array)->flattenKeys($nest_keys, $separator)->get();
 }
 
 /**
