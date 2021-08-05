@@ -14,12 +14,9 @@ class FlattenKeysTest extends TestCase
         return [
             [
                 [
-                    'array' => [
-                        ['green' => 22, 'blue' => 54],
-                        ['red' => 36, 'purple' => 78],
-                        ['black' => 88, 'white' => 72],
-                    ],
-                    'nest_keys' => true,
+                    ['green' => 22, 'blue' => 54],
+                    ['red' => 36, 'purple' => 78],
+                    ['black' => 88, 'white' => 72],
                 ],
                 [
                     '0_green' => 22,
@@ -33,11 +30,8 @@ class FlattenKeysTest extends TestCase
 
             [
                 [
-                    'array' => [
-                        ['green' => 22, 'blue' => 54, 'red' => 36],
-                        ['purple' => 78, 'black' => 88, 'white' => 72],
-                    ],
-                    'nest_keys' => true,
+                    ['green' => 22, 'blue' => 54, 'red' => 36],
+                    ['purple' => 78, 'black' => 88, 'white' => 72],
                 ],
                 [
                     '0_green' => 22,
@@ -51,13 +45,10 @@ class FlattenKeysTest extends TestCase
 
             [
                 [
-                    'array' => [
-                        ['green' => 22, 'blue' => 54],
-                        ['red' => 36],
-                        ['purple' => 78],
-                        ['black' => 88, 'white' => 72],
-                    ],
-                    'nest_keys' => true,
+                    ['green' => 22, 'blue' => 54],
+                    ['red' => 36],
+                    ['purple' => 78],
+                    ['black' => 88, 'white' => 72],
                 ],
                 [
                     '0_green' => 22,
@@ -71,39 +62,36 @@ class FlattenKeysTest extends TestCase
 
             [
                 [
-                    'array' => [
-                        [
-                            'green' => [
-                                22,
-                                22 * 2,
-                            ],
-                            'blue' => [
-                                54,
-                                54 * 2,
-                            ],
+                    [
+                        'green' => [
+                            22,
+                            22 * 2,
                         ],
-                        [
-                            'red' => [
-                                36,
-                                36 * 2,
-                            ],
-                            'purple' => [
-                                78,
-                                78 * 2,
-                            ],
-                        ],
-                        [
-                            'black' => [
-                                88,
-                                88 * 2,
-                            ],
-                            'white' => [
-                                72,
-                                72 * 2,
-                            ],
+                        'blue' => [
+                            54,
+                            54 * 2,
                         ],
                     ],
-                    'nest_keys' => true,
+                    [
+                        'red' => [
+                            36,
+                            36 * 2,
+                        ],
+                        'purple' => [
+                            78,
+                            78 * 2,
+                        ],
+                    ],
+                    [
+                        'black' => [
+                            88,
+                            88 * 2,
+                        ],
+                        'white' => [
+                            72,
+                            72 * 2,
+                        ],
+                    ],
                 ],
                 [
                     '0_green' => [
@@ -145,7 +133,7 @@ class FlattenKeysTest extends TestCase
         $this->assertFlattenKeys(
             $args,
             $this->getExpectedNotNested($expected),
-            ArrayHelpers::from($args['array'])->flattenKeys(false)->get()
+            ArrayHelpers::from($args)->flattenKeys(false)->get()
         );
     }
 
@@ -159,7 +147,7 @@ class FlattenKeysTest extends TestCase
         $this->assertFlattenKeys(
             $args,
             $expected,
-            ArrayHelpers::from($args['array'])->flattenKeys(true)->get()
+            ArrayHelpers::from($args)->flattenKeys(true)->get()
         );
     }
 
@@ -173,7 +161,7 @@ class FlattenKeysTest extends TestCase
         $this->assertFlattenKeys(
             $args,
             $this->getExpectedNotNested($expected),
-            arrayFlattenKeys($args['array'], false)
+            arrayFlattenKeys($args, false)
         );
     }
 
@@ -187,7 +175,7 @@ class FlattenKeysTest extends TestCase
         $this->assertFlattenKeys(
             $args,
             $expected,
-            arrayFlattenKeys($args['array'], true)
+            arrayFlattenKeys($args, true)
         );
     }
 
@@ -196,7 +184,7 @@ class FlattenKeysTest extends TestCase
         $this->assertEquals($expected, $flat);
         $this->assertIsArray($flat);
 
-        foreach ($args['array'] as $array) {
+        foreach ($args as $array) {
             foreach (array_values($array) as $value) {
                 $this->assertTrue(in_array($value, array_values($flat)));
             }
