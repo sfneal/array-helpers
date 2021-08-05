@@ -8,7 +8,6 @@ use Sfneal\Helpers\Arrays\Tests\TestCase;
 class FlattenKeysTest extends TestCase
 {
     // todo: add data providers with more levels of nesting
-    // todo: add providers without nest_keys param
     public function flattenKeysProvider(): array
     {
         return [
@@ -62,6 +61,95 @@ class FlattenKeysTest extends TestCase
                     'd2_carlo' => 25,
                 ],
             ],
+
+//            [
+//                [
+//                    'forwards' => [
+//                        [
+//                            'marchand' => 63,
+//                            'bergeron' => 37,
+//                            'pastrnak' => 88,
+//                        ],
+//                        [
+//                            'hall' => 71,
+//                            'coyle' => 13,
+//                            'haula' => 56,
+//                        ],
+//                    ],
+//                    'defense' => [
+//                        'd1' => [
+//                            'grzelcyk' => 46,
+//                            'mcavoy' => 73,
+//                        ],
+//                        'd2' => [
+//                            'forbert' => 24,
+//                            'carlo' => 25,
+//                        ],
+//                    ],
+//                    'special-teams' => [
+//                        'pp' => [
+//                            [
+//                                'marchand' => 63,
+//                                'bergeron' => 37,
+//                                'pastrnak' => 88,
+//                                'mcavoy' => 73,
+//                                'hall' => 71,
+//                            ],
+//                            [
+//                                'coyle' => 13,
+//                                'haula' => 56,
+//                                'foligno' => 72,
+//                                'grzelcyk' => 46,
+//                                'wagner' => 14,
+//                            ],
+//                        ],
+//                        'pk' => [
+//                            [
+//                                'marchand' => 63,
+//                                'bergeron' => 37,
+//                                'forbert' => 24,
+//                                'carlo' => 25,
+//                            ],
+//                            [
+//                                'coyle' => 13,
+//                                'wagner' => 14,
+//                                'moore' => 27,
+//                                'mcavoy' => 73,
+//                            ],
+//                        ]
+//                    ]
+//                ],
+//                [
+//                    'forwards_0_marchand' => 63,
+//                    'forwards_0_bergeron' => 37,
+//                    'forwards_0_pastrnak' => 88,
+//                    'forwards_1_hall' => 71,
+//                    'forwards_1_coyle' => 13,
+//                    'forwards_1_haula' => 56,
+//                    'defense_0_grzelcyk' => 46,
+//                    'defense_0_mcavoy' => 73,
+//                    'defense_1_forbert' => 24,
+//                    'defense_1_carlo' => 25,
+//                    'special-teams_pp_0_marchand' => 63,
+//                    'special-teams_pp_0_bergeron' => 37,
+//                    'special-teams_pp_0_pastrnak' => 88,
+//                    'special-teams_pp_0_mcavoy' => 73,
+//                    'special-teams_pp_0_hall' => 71,
+//                    'special-teams_pp_1_coyle' => 13,
+//                    'special-teams_pp_1_haula' => 56,
+//                    'special-teams_pp_1_foligno' => 72,
+//                    'special-teams_pp_1_grzelcyk' => 46,
+//                    'special-teams_pp_1_wagner' => 14,
+//                    'special-teams_pk_0_marchand' => 63,
+//                    'special-teams_pk_0_bergeron' => 37,
+//                    'special-teams_pk_0_forbert' => 24,
+//                    'special-teams_pk_0_carlo' => 25,
+//                    'special-teams_pk_1_coyle' => 13,
+//                    'special-teams_pk_1_wagner' => 14,
+//                    'special-teams_pk_1_moore' => 27,
+//                    'special-teams_pk_1_mcavoy' => 73,
+//                ],
+//            ],
 
             [
                 [
