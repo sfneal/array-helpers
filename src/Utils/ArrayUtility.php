@@ -149,7 +149,7 @@ class ArrayUtility
      */
     public function only(array $only): self
     {
-        return $this->set(array_filter($this->array, function($key) use ($only) {
+        return $this->set(array_filter($this->array, function ($key) use ($only) {
             return in_array($key, $only);
         }, ARRAY_FILTER_USE_KEY));
     }
