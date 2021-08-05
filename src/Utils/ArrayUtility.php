@@ -130,14 +130,14 @@ class ArrayUtility
     }
 
     /**
-     * Remove specific arrays of keys.
+     * Remove specific arrays of keys without altering the original $array.
      *
      * @param array $except
      * @return self
      */
     public function except(array $except): self
     {
-        return $this->set(array_diff_key($this->array, array_flip((array) $except)));
+        return new self(array_diff_key($this->array, array_flip((array) $except)));
     }
 
     /**
