@@ -27,11 +27,12 @@ function arrayChunks(array $array,
  *
  * @param array $array
  * @param bool $nest_keys
+ * @param string $separator
  * @return array
  */
-function arrayFlattenKeys(array $array, bool $nest_keys = true): array
+function arrayFlattenKeys(array $array, bool $nest_keys = true, string $separator = '_'): array
 {
-    return ArrayHelpers::from($array)->flattenKeys($nest_keys)->get();
+    return ArrayHelpers::from($array)->flattenKeys($nest_keys, $separator)->get();
 }
 
 /**
@@ -104,8 +105,9 @@ function arrayHasKeys(array $array): bool
 }
 
 if (! function_exists('array_except')) {
+    // todo: refactor to `arrayExcept()`
     /**
-     * Remove specific arrays of keys without modifying the original array.
+     * Remove specific arrays of keys.
      *
      * @param array $original
      * @param array $except
@@ -114,6 +116,20 @@ if (! function_exists('array_except')) {
     function array_except(array $original, array $except): array
     {
         return ArrayHelpers::from($original)->except($except)->get();
+    }
+}
+
+if (! function_exists('arrayOnly')) {
+    /**
+     * Retrieve an array with only the keys provided in the $only param.
+     *
+     * @param array $original
+     * @param array $only
+     * @return array
+     */
+    function arrayOnly(array $original, array $only): array
+    {
+        return ArrayHelpers::from($original)->only($only)->get();
     }
 }
 

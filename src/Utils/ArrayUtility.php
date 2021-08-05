@@ -87,9 +87,10 @@ class ArrayUtility
      * Flatten a multidimensional array into a 2D array without nested keys.
      *
      * @param bool $nest_keys
+     * @param string $separator
      * @return self
      */
-    public function flattenKeys(bool $nest_keys = true): self
+    public function flattenKeys(bool $nest_keys = true, string $separator = '_'): self
     {
         // todo: possible use while loop for multi level nesting?
         $flat = [];
@@ -98,7 +99,7 @@ class ArrayUtility
                 // If the key is an array, add each children keys to flattened array
                 foreach ($this->array[$key] as $k => $v) {
                     if ($nest_keys) {
-                        $flat[$key.'_'.$k] = $v;
+                        $flat[$key.$separator.$k] = $v;
                     } else {
                         $flat[$k] = $v;
                     }
@@ -130,14 +131,27 @@ class ArrayUtility
     }
 
     /**
-     * Remove specific arrays of keys without modifying the original array.
+     * Remove specific arrays of keys without altering the original $array.
      *
      * @param array $except
      * @return self
      */
     public function except(array $except): self
     {
-        return $this->set(array_diff_key($this->array, array_flip((array) $except)));
+        return new self(array_diff_key($this->array, array_flip((array) $except)));
+    }
+
+    /**
+     * Retrieve an array with only the keys provided in the $only param.
+     *
+     * @param array $only
+     * @return self
+     */
+    public function only(array $only): self
+    {
+        return $this->set(array_filter($this->array, function ($key) use ($only) {
+            return in_array($key, $only);
+        }, ARRAY_FILTER_USE_KEY));
     }
 
     /**
