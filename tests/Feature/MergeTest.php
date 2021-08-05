@@ -101,12 +101,28 @@ class MergeTest extends TestCase
      * @param array $args
      * @param array $expected
      */
-    public function test_merge(array $args, array $expected)
+    public function test_from_merge(array $args, array $expected)
     {
         $this->assertMerge(
             $args,
             $expected,
             ArrayHelpers::fromMerge(...$args)->get()
+        );
+    }
+
+    /**
+     * @dataProvider mergeProvider
+     * @param array $args
+     * @param array $expected
+     */
+    public function test_merge(array $args, array $expected)
+    {
+        $first = array_shift($args);
+
+        $this->assertMerge(
+            $args,
+            $expected,
+            ArrayHelpers::from($first)->merge(...$args)->get()
         );
     }
 
