@@ -18,6 +18,17 @@ class ArrayHelpers
     }
 
     /**
+     * Instantiate a `ArrayUtility` instance by passing multiple $arrays to the constructor to be merged.
+     *
+     * @param mixed ...$arrays
+     * @return ArrayUtility
+     */
+    public static function fromMerge(...$arrays): ArrayUtility
+    {
+        return new ArrayUtility(array_merge(...$arrays));
+    }
+
+    /**
      * Sum the values of two arrays.
      *
      * @param array $arrays
