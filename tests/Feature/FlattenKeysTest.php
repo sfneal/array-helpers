@@ -30,6 +30,41 @@ class FlattenKeysTest extends TestCase
 
             [
                 [
+                    'f1' => [
+                        'marchand' => 63,
+                        'bergeron' => 37,
+                        'pastrnak' => 88,
+                    ],
+                    'f2' => [
+                        'hall' => 71,
+                        'coyle' => 13,
+                        'haula' => 56,
+                    ],
+                    'd1' => [
+                        'grzelcyk' => 46,
+                        'mcavoy' => 73,
+                    ],
+                    'd2' => [
+                        'forbert' => 24,
+                        'carlo' => 25,
+                    ],
+                ],
+                [
+                    'f1_marchand' => 63,
+                    'f1_bergeron' => 37,
+                    'f1_pastrnak' => 88,
+                    'f2_hall' => 71,
+                    'f2_coyle' => 13,
+                    'f2_haula' => 56,
+                    'd1_grzelcyk' => 46,
+                    'd1_mcavoy' => 73,
+                    'd2_forbert' => 24,
+                    'd2_carlo' => 25,
+                ],
+            ],
+
+            [
+                [
                     ['green' => 22, 'blue' => 54, 'red' => 36],
                     ['purple' => 78, 'black' => 88, 'white' => 72],
                 ],
@@ -200,7 +235,7 @@ class FlattenKeysTest extends TestCase
     private function getExpectedNotNested(array $expected): array
     {
         return collect($expected)->mapWithKeys(function($value, $key) {
-            return [substr($key, 2) => $value];
+            return [substr($key, strpos($key, '_') + 1) => $value];
         })->toArray();
     }
 }
