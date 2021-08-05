@@ -13,12 +13,9 @@ class FlattenKeysTest extends TestCase
         return [
             [
                 [
-                    'array' => [
-                        ['green' => 22, 'blue' => 54],
-                        ['red' => 36, 'purple' => 78],
-                        ['black' => 88, 'white' => 72],
-                    ],
-                    'nest_keys' => true,
+                    ['green' => 22, 'blue' => 54],
+                    ['red' => 36, 'purple' => 78],
+                    ['black' => 88, 'white' => 72],
                 ],
                 [
                     '0_green' => 22,
@@ -32,11 +29,132 @@ class FlattenKeysTest extends TestCase
 
             [
                 [
-                    'array' => [
-                        ['green' => 22, 'blue' => 54, 'red' => 36],
-                        ['purple' => 78, 'black' => 88, 'white' => 72],
+                    'f1' => [
+                        'marchand' => 63,
+                        'bergeron' => 37,
+                        'pastrnak' => 88,
                     ],
-                    'nest_keys' => true,
+                    'f2' => [
+                        'hall' => 71,
+                        'coyle' => 13,
+                        'haula' => 56,
+                    ],
+                    'd1' => [
+                        'grzelcyk' => 46,
+                        'mcavoy' => 73,
+                    ],
+                    'd2' => [
+                        'forbert' => 24,
+                        'carlo' => 25,
+                    ],
+                ],
+                [
+                    'f1_marchand' => 63,
+                    'f1_bergeron' => 37,
+                    'f1_pastrnak' => 88,
+                    'f2_hall' => 71,
+                    'f2_coyle' => 13,
+                    'f2_haula' => 56,
+                    'd1_grzelcyk' => 46,
+                    'd1_mcavoy' => 73,
+                    'd2_forbert' => 24,
+                    'd2_carlo' => 25,
+                ],
+            ],
+
+            //            [
+            //                [
+            //                    'forwards' => [
+            //                        [
+            //                            'marchand' => 63,
+            //                            'bergeron' => 37,
+            //                            'pastrnak' => 88,
+            //                        ],
+            //                        [
+            //                            'hall' => 71,
+            //                            'coyle' => 13,
+            //                            'haula' => 56,
+            //                        ],
+            //                    ],
+            //                    'defense' => [
+            //                        'd1' => [
+            //                            'grzelcyk' => 46,
+            //                            'mcavoy' => 73,
+            //                        ],
+            //                        'd2' => [
+            //                            'forbert' => 24,
+            //                            'carlo' => 25,
+            //                        ],
+            //                    ],
+            //                    'special-teams' => [
+            //                        'pp' => [
+            //                            [
+            //                                'marchand' => 63,
+            //                                'bergeron' => 37,
+            //                                'pastrnak' => 88,
+            //                                'mcavoy' => 73,
+            //                                'hall' => 71,
+            //                            ],
+            //                            [
+            //                                'coyle' => 13,
+            //                                'haula' => 56,
+            //                                'foligno' => 72,
+            //                                'grzelcyk' => 46,
+            //                                'wagner' => 14,
+            //                            ],
+            //                        ],
+            //                        'pk' => [
+            //                            [
+            //                                'marchand' => 63,
+            //                                'bergeron' => 37,
+            //                                'forbert' => 24,
+            //                                'carlo' => 25,
+            //                            ],
+            //                            [
+            //                                'coyle' => 13,
+            //                                'wagner' => 14,
+            //                                'moore' => 27,
+            //                                'mcavoy' => 73,
+            //                            ],
+            //                        ]
+            //                    ]
+            //                ],
+            //                [
+            //                    'forwards_0_marchand' => 63,
+            //                    'forwards_0_bergeron' => 37,
+            //                    'forwards_0_pastrnak' => 88,
+            //                    'forwards_1_hall' => 71,
+            //                    'forwards_1_coyle' => 13,
+            //                    'forwards_1_haula' => 56,
+            //                    'defense_0_grzelcyk' => 46,
+            //                    'defense_0_mcavoy' => 73,
+            //                    'defense_1_forbert' => 24,
+            //                    'defense_1_carlo' => 25,
+            //                    'special-teams_pp_0_marchand' => 63,
+            //                    'special-teams_pp_0_bergeron' => 37,
+            //                    'special-teams_pp_0_pastrnak' => 88,
+            //                    'special-teams_pp_0_mcavoy' => 73,
+            //                    'special-teams_pp_0_hall' => 71,
+            //                    'special-teams_pp_1_coyle' => 13,
+            //                    'special-teams_pp_1_haula' => 56,
+            //                    'special-teams_pp_1_foligno' => 72,
+            //                    'special-teams_pp_1_grzelcyk' => 46,
+            //                    'special-teams_pp_1_wagner' => 14,
+            //                    'special-teams_pk_0_marchand' => 63,
+            //                    'special-teams_pk_0_bergeron' => 37,
+            //                    'special-teams_pk_0_forbert' => 24,
+            //                    'special-teams_pk_0_carlo' => 25,
+            //                    'special-teams_pk_1_coyle' => 13,
+            //                    'special-teams_pk_1_wagner' => 14,
+            //                    'special-teams_pk_1_moore' => 27,
+            //                    'special-teams_pk_1_mcavoy' => 73,
+            //                ],
+            //            ],
+
+            [
+                [
+                    ['green' => 22, 'blue' => 54, 'red' => 36],
+                    ['purple' => 78, 'black' => 88, 'white' => 72],
                 ],
                 [
                     '0_green' => 22,
@@ -50,13 +168,10 @@ class FlattenKeysTest extends TestCase
 
             [
                 [
-                    'array' => [
-                        ['green' => 22, 'blue' => 54],
-                        ['red' => 36],
-                        ['purple' => 78],
-                        ['black' => 88, 'white' => 72],
-                    ],
-                    'nest_keys' => true,
+                    ['green' => 22, 'blue' => 54],
+                    ['red' => 36],
+                    ['purple' => 78],
+                    ['black' => 88, 'white' => 72],
                 ],
                 [
                     '0_green' => 22,
@@ -70,39 +185,36 @@ class FlattenKeysTest extends TestCase
 
             [
                 [
-                    'array' => [
-                        [
-                            'green' => [
-                                22,
-                                22 * 2,
-                            ],
-                            'blue' => [
-                                54,
-                                54 * 2,
-                            ],
+                    [
+                        'green' => [
+                            22,
+                            22 * 2,
                         ],
-                        [
-                            'red' => [
-                                36,
-                                36 * 2,
-                            ],
-                            'purple' => [
-                                78,
-                                78 * 2,
-                            ],
-                        ],
-                        [
-                            'black' => [
-                                88,
-                                88 * 2,
-                            ],
-                            'white' => [
-                                72,
-                                72 * 2,
-                            ],
+                        'blue' => [
+                            54,
+                            54 * 2,
                         ],
                     ],
-                    'nest_keys' => true,
+                    [
+                        'red' => [
+                            36,
+                            36 * 2,
+                        ],
+                        'purple' => [
+                            78,
+                            78 * 2,
+                        ],
+                    ],
+                    [
+                        'black' => [
+                            88,
+                            88 * 2,
+                        ],
+                        'white' => [
+                            72,
+                            72 * 2,
+                        ],
+                    ],
                 ],
                 [
                     '0_green' => [
@@ -143,8 +255,22 @@ class FlattenKeysTest extends TestCase
     {
         $this->assertFlattenKeys(
             $args,
+            $this->getExpectedNotNested($expected),
+            ArrayHelpers::from($args)->flattenKeys(false)->get()
+        );
+    }
+
+    /**
+     * @dataProvider flattenKeysProvider
+     * @param array $args
+     * @param array $expected
+     */
+    public function test_flatten_keys_nested(array $args, array $expected)
+    {
+        $this->assertFlattenKeys(
+            $args,
             $expected,
-            ArrayHelpers::from($args['array'])->flattenKeys($args['nest_keys'])->get()
+            ArrayHelpers::from($args)->flattenKeys(true)->get()
         );
     }
 
@@ -157,8 +283,22 @@ class FlattenKeysTest extends TestCase
     {
         $this->assertFlattenKeys(
             $args,
+            $this->getExpectedNotNested($expected),
+            arrayFlattenKeys($args, false)
+        );
+    }
+
+    /**
+     * @dataProvider flattenKeysProvider
+     * @param array $args
+     * @param array $expected
+     */
+    public function test_flatten_keys_helper_nested(array $args, array $expected)
+    {
+        $this->assertFlattenKeys(
+            $args,
             $expected,
-            arrayFlattenKeys($args['array'], $args['nest_keys'])
+            arrayFlattenKeys($args, true)
         );
     }
 
@@ -167,10 +307,23 @@ class FlattenKeysTest extends TestCase
         $this->assertEquals($expected, $flat);
         $this->assertIsArray($flat);
 
-        foreach ($args['array'] as $array) {
+        foreach ($args as $array) {
             foreach (array_values($array) as $value) {
                 $this->assertTrue(in_array($value, array_values($flat)));
             }
         }
+    }
+
+    /**
+     * Remove the "{$index}_" prefix from expected keys.
+     *
+     * @param array $expected
+     * @return array
+     */
+    private function getExpectedNotNested(array $expected): array
+    {
+        return collect($expected)->mapWithKeys(function ($value, $key) {
+            return [substr($key, strpos($key, '_') + 1) => $value];
+        })->toArray();
     }
 }

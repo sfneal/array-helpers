@@ -99,3 +99,7 @@ All notable changes to `array-helpers` will be documented in this file
 
 ## 3.1.0 - 2021-08-04
 - optimize `ArrayHelpers::sum()` method & `arraySum()` helper to accept variadic array params
+
+
+## 3.1.1 - 2021-08-05
+- add test methods to `FlattenKeysTest` that tests data sets using $nest_keys param set as true & false
