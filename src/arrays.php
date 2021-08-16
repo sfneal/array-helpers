@@ -104,8 +104,7 @@ function arrayHasKeys(array $array): bool
     return ArrayHelpers::from($array)->hasKeys();
 }
 
-if (! function_exists('array_except')) {
-    // todo: refactor to `arrayExcept()`
+if (! function_exists('arrayExcept')) {
     /**
      * Remove specific arrays of keys.
      *
@@ -113,7 +112,7 @@ if (! function_exists('array_except')) {
      * @param array $except
      * @return array
      */
-    function array_except(array $original, array $except): array
+    function arrayExcept(array $original, array $except): array
     {
         return ArrayHelpers::from($original)->except($except)->get();
     }
