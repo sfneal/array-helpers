@@ -7,7 +7,6 @@ use Sfneal\Helpers\Arrays\Tests\TestCase;
 
 class FlattenKeysTest extends TestCase
 {
-    // todo: add data providers with more levels of nesting
     public function flattenKeysProvider(): array
     {
         return [
